@@ -9,7 +9,6 @@ export default class App extends Component {
     return (
       <div>
         <h1>Movie Watcher</h1>
-        {this.props.children}
       </div>
     )
   }
