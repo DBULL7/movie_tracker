@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom'
 import { Home } from './Home'
 import { Login } from './Login'
-import { CreateAccount } from './CreateAccount'
+import { CreateAccount } from './CreateAccount/CreateAccount.js'
 import { Favorites } from './Favorites'
 import { Navbar } from './Navbar'
 
@@ -13,8 +13,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Movie Watcher</h1>
+      <div id="page">
+        <h1>Movie Tracker</h1>
         <Navbar/>
         <Switch>
           <Route exact path='/Favorites' component={Favorites}/>

@@ -21893,11 +21893,11 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { id: 'page' },
 	        _react2.default.createElement(
 	          'h1',
 	          null,
-	          'Movie Watcher'
+	          'Movie Tracker'
 	        ),
 	        _react2.default.createElement(_Navbar.Navbar, null),
 	        _react2.default.createElement(
@@ -25446,7 +25446,7 @@
 /* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -25461,9 +25461,26 @@
 	
 	var CreateAccount = exports.CreateAccount = function CreateAccount() {
 	  return _react2.default.createElement(
-	    'h2',
-	    null,
-	    'CreateAccount'
+	    "section",
+	    { id: "CreateAccount" },
+	    _react2.default.createElement(
+	      "article",
+	      { id: "form" },
+	      _react2.default.createElement(
+	        "h2",
+	        { id: "create-account-title" },
+	        "Create Account"
+	      ),
+	      _react2.default.createElement("input", { type: "text", placeholder: "Name" }),
+	      _react2.default.createElement("input", { type: "text", placeholder: "Email" }),
+	      _react2.default.createElement("input", { type: "text", placeholder: "Enter Your Password" }),
+	      _react2.default.createElement("input", { type: "text", placeholder: "Retype Your Password" }),
+	      _react2.default.createElement(
+	        "button",
+	        null,
+	        "CreateAccount"
+	      )
+	    )
 	  );
 	};
 
