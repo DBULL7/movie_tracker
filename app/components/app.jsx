@@ -19,7 +19,6 @@ export default class App extends Component {
 
     getNewFilms().then((e) => {
       this.setState({movies: e})
-      console.log('whole', getMovies)
       console.log('results', this.state.movies)
     })
   }
