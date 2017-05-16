@@ -65,7 +65,7 @@
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _movieIndex = __webpack_require__(229);
+	var _movieIndex = __webpack_require__(230);
 	
 	var _movieIndex2 = _interopRequireDefault(_movieIndex);
 	
@@ -21871,6 +21871,10 @@
 	
 	var _Navbar = __webpack_require__(228);
 	
+	var _getNewFilms = __webpack_require__(229);
+	
+	var _getNewFilms2 = _interopRequireDefault(_getNewFilms);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21885,12 +21889,32 @@
 	  function App() {
 	    _classCallCheck(this, App);
 	
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+	
+	    _this.state = {
+	      movies: {}
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(App, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+	
+	      var getMovies = void 0;
+	
+	      (0, _getNewFilms2.default)().then(function (e) {
+	        getMovies = e;
+	        _this2.setState({ movies: getMovies });
+	        console.log('whole', getMovies);
+	        console.log('results', _this2.state.movies);
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -21900,6 +21924,7 @@
 	          'Movie Watcher'
 	        ),
 	        _react2.default.createElement(_Navbar.Navbar, null),
+	        console.log('oogah boogah', this.state.movies),
 	        _react2.default.createElement(
 	          _reactRouterDom.Switch,
 	          null,
@@ -25413,7 +25438,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    'Heyo'
+	    'HeyoHeyoHeyo'
 	  );
 	};
 
@@ -25540,6 +25565,34 @@
 
 /***/ }),
 /* 229 */
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var getNewFilms = function getNewFilms() {
+	  var p1 = apiCall('https://api.themoviedb.org/3/movie/now_playing?api_key=943e4f5ccf1cdbbcab342f134a46713a&language=en-US&page=1');
+	
+	  return Promise.all([p1]).then(function (filmArray) {
+	    console.log('new films', filmArray);
+	    console.log('new films[0]', filmArray[0]);
+	    console.log('new films[0].results', filmArray[0].results);
+	    return filmArray[0].results;
+	  });
+	};
+	
+	var apiCall = function apiCall(address) {
+	  return fetch(address).then(function (response) {
+	    return response.json();
+	  });
+	};
+	
+	exports.default = getNewFilms;
+
+/***/ }),
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
