@@ -8,20 +8,18 @@ import { Navbar } from './Navbar'
 import getNewFilms from '../helpers/getNewFilms'
 
 export default class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      movies: {},
+      favorites: {},
     }
   }
 
   componentDidMount () {
-
-    getNewFilms().then((e) => {
-      this.setState({movies: e})
-      console.log('results', this.state.movies)
-    })
+    console.log(this.props);
+    upcomingFilms()
   }
+
 
   render() {
 
