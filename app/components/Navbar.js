@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
-    <div id='navBar'>
+    <section id='navBar'>
       <NavLink exact to='/' activeClassName='selected'>Home</NavLink>
       <NavLink to='/Login' activeClassName='selected'>Login</NavLink>
       <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
-      <NavLink to='/CreateAccount' activeClassName='selected'>CreateAccount</NavLink>
+      <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink>
 
-    </div>
+    </section>
   );
 }

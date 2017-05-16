@@ -25396,7 +25396,7 @@
 /* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -25411,9 +25411,13 @@
 	
 	var Home = exports.Home = function Home() {
 	  return _react2.default.createElement(
-	    'div',
+	    "section",
 	    null,
-	    'Heyo'
+	    _react2.default.createElement(
+	      "h2",
+	      { className: "home-title" },
+	      "Home"
+	    )
 	  );
 	};
 
@@ -25482,14 +25486,14 @@
 	        { id: "create-account-title" },
 	        "Create Account"
 	      ),
-	      _react2.default.createElement("input", { type: "text", placeholder: "Name" }),
-	      _react2.default.createElement("input", { type: "text", placeholder: "Email" }),
-	      _react2.default.createElement("input", { type: "text", placeholder: "Enter Your Password" }),
-	      _react2.default.createElement("input", { type: "text", placeholder: "Retype Your Password" }),
+	      _react2.default.createElement("input", { className: "create-account-form", type: "text", placeholder: "Name" }),
+	      _react2.default.createElement("input", { className: "create-account-form", type: "text", placeholder: "Email" }),
+	      _react2.default.createElement("input", { className: "create-account-form", type: "text", placeholder: "Enter Your Password" }),
+	      _react2.default.createElement("input", { className: "create-account-form", type: "text", placeholder: "Retype Your Password" }),
 	      _react2.default.createElement(
 	        "button",
-	        null,
-	        "CreateAccount"
+	        { className: "create-account-button" },
+	        "Create Account"
 	      )
 	    )
 	  );
@@ -25499,7 +25503,7 @@
 /* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -25514,9 +25518,9 @@
 	
 	var Favorites = exports.Favorites = function Favorites() {
 	  return _react2.default.createElement(
-	    'h2',
-	    null,
-	    'Favorites'
+	    "h2",
+	    { className: "favorites-title" },
+	    "Favorites"
 	  );
 	};
 
@@ -25541,7 +25545,7 @@
 	
 	var Navbar = exports.Navbar = function Navbar() {
 	  return _react2.default.createElement(
-	    'div',
+	    'section',
 	    { id: 'navBar' },
 	    _react2.default.createElement(
 	      _reactRouterDom.NavLink,
@@ -25561,7 +25565,7 @@
 	    _react2.default.createElement(
 	      _reactRouterDom.NavLink,
 	      { to: '/CreateAccount', activeClassName: 'selected' },
-	      'CreateAccount'
+	      'Create Account'
 	    )
 	  );
 	};
