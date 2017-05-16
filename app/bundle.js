@@ -21867,6 +21867,8 @@
 	
 	var _CreateAccount = __webpack_require__(226);
 	
+	var _CreateAccount2 = _interopRequireDefault(_CreateAccount);
+	
 	var _Favorites = __webpack_require__(227);
 	
 	var _Navbar = __webpack_require__(228);
@@ -21902,11 +21904,8 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 	
-	      var getMovies = void 0;
-	
 	      (0, _getNewFilms2.default)().then(function (e) {
-	        getMovies = e;
-	        _this2.setState({ movies: getMovies });
+	        _this2.setState({ movies: e });
 	        console.log('whole', getMovies);
 	        console.log('results', _this2.state.movies);
 	      });
@@ -21929,7 +21928,9 @@
 	          _reactRouterDom.Switch,
 	          null,
 	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/Favorites', component: _Favorites.Favorites }),
-	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/CreateAccount', component: _CreateAccount.CreateAccount }),
+	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/CreateAccount', render: function render() {
+	              return _react2.default.createElement(_CreateAccount2.default, null);
+	            } }),
 	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/Login', component: _Login.Login }),
 	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render() {
 	              return _react2.default.createElement(_Home.Home, null);
@@ -25438,13 +25439,11 @@
 	  return _react2.default.createElement(
 	    "section",
 	    null,
-
 	    _react2.default.createElement(
 	      "h2",
 	      { className: "home-title" },
 	      "Home"
 	    )
-
 	  );
 	};
 
@@ -25488,12 +25487,13 @@
 /* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.CreateAccount = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(2);
 	
@@ -25501,30 +25501,110 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var CreateAccount = exports.CreateAccount = function CreateAccount() {
-	  return _react2.default.createElement(
-	    "section",
-	    { id: "CreateAccount" },
-	    _react2.default.createElement(
-	      "article",
-	      { id: "form" },
-	      _react2.default.createElement(
-	        "h2",
-	        { id: "create-account-title" },
-	        "Create Account"
-	      ),
-	      _react2.default.createElement("input", { className: "create-account-form", type: "text", placeholder: "Name" }),
-	      _react2.default.createElement("input", { className: "create-account-form", type: "text", placeholder: "Email" }),
-	      _react2.default.createElement("input", { className: "create-account-form", type: "text", placeholder: "Enter Your Password" }),
-	      _react2.default.createElement("input", { className: "create-account-form", type: "text", placeholder: "Retype Your Password" }),
-	      _react2.default.createElement(
-	        "button",
-	        { className: "create-account-button" },
-	        "Create Account"
-	      )
-	    )
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CreateAccount = function (_Component) {
+	  _inherits(CreateAccount, _Component);
+	
+	  function CreateAccount() {
+	    _classCallCheck(this, CreateAccount);
+	
+	    var _this = _possibleConstructorReturn(this, (CreateAccount.__proto__ || Object.getPrototypeOf(CreateAccount)).call(this));
+	
+	    _this.state = {
+	      name: '',
+	      email: '',
+	      password: '',
+	      retypedPassword: ''
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(CreateAccount, [{
+	    key: 'updateName',
+	    value: function updateName(input) {
+	      this.setState({ name: input });
+	    }
+	  }, {
+	    key: 'updateEmail',
+	    value: function updateEmail(input) {
+	      this.setState({ email: input });
+	    }
+	  }, {
+	    key: 'updatePassword',
+	    value: function updatePassword(input) {
+	      this.setState({ password: input });
+	    }
+	  }, {
+	    key: 'updateRetypedPassword',
+	    value: function updateRetypedPassword(input) {
+	      this.setState({ retypedPassword: input });
+	    }
+	  }, {
+	    key: 'test',
+	    value: function test() {
+	      if (this.state.password.value === this.state.retypedPassword.value) {
+	        if (this.state.name !== '' && this.state.email !== '') {
+	          fetch("api/users/new", {
+	            method: "POST",
+	            headers: { "Content-Type": "application/json" },
+	            body: JSON.stringify({ name: this.state.name,
+	              email: this.state.email,
+	              password: this.state.password })
+	          }).then(function (response) {
+	            console.log(response);
+	          });
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      return _react2.default.createElement(
+	        'section',
+	        { id: 'CreateAccount' },
+	        _react2.default.createElement(
+	          'article',
+	          { id: 'form' },
+	          _react2.default.createElement(
+	            'h2',
+	            { id: 'create-account-title' },
+	            'Create Account'
+	          ),
+	          _react2.default.createElement('input', { value: this.state.name, onChange: function onChange(e) {
+	              _this2.updateName(e.target.value);
+	            }, className: 'create-account-form', type: 'text', placeholder: 'Name' }),
+	          _react2.default.createElement('input', { value: this.state.email, onChange: function onChange(e) {
+	              _this2.updateEmail(e.target.value);
+	            }, className: 'create-account-form', type: 'text', placeholder: 'Email' }),
+	          _react2.default.createElement('input', { value: this.state.password, onChange: function onChange(e) {
+	              _this2.updatePassword(e.target.value);
+	            }, className: 'create-account-form', type: 'text', placeholder: 'Enter Your Password' }),
+	          _react2.default.createElement('input', { value: this.state.retypedPassword, onChange: function onChange(e) {
+	              _this2.updateRetypedPassword(e.target.value);
+	            }, className: 'create-account-form', type: 'text', placeholder: 'Retype Your Password' }),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: function onClick() {
+	                _this2.test();
+	              }, className: 'create-account-button' },
+	            'Create Account'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return CreateAccount;
+	}(_react.Component);
+	
+	exports.default = CreateAccount;
 
 /***/ }),
 /* 227 */
@@ -25610,9 +25690,6 @@
 	  var p1 = apiCall('https://api.themoviedb.org/3/movie/now_playing?api_key=943e4f5ccf1cdbbcab342f134a46713a&language=en-US&page=1');
 	
 	  return Promise.all([p1]).then(function (filmArray) {
-	    console.log('new films', filmArray);
-	    console.log('new films[0]', filmArray[0]);
-	    console.log('new films[0].results', filmArray[0].results);
 	    return filmArray[0].results;
 	  });
 	};
