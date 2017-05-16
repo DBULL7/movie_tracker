@@ -25421,7 +25421,7 @@
 /* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -25436,9 +25436,20 @@
 	
 	var Login = exports.Login = function Login() {
 	  return _react2.default.createElement(
-	    'h2',
-	    null,
-	    'Login'
+	    "section",
+	    { id: "login" },
+	    _react2.default.createElement(
+	      "h2",
+	      { id: "login-title" },
+	      "Login"
+	    ),
+	    _react2.default.createElement("input", { className: "login-form", placeholder: "Email" }),
+	    _react2.default.createElement("input", { className: "login-form", placeholder: "Password" }),
+	    _react2.default.createElement(
+	      "button",
+	      { id: "login-button" },
+	      "Login"
+	    )
 	  );
 	};
 
@@ -25531,7 +25542,7 @@
 	var Navbar = exports.Navbar = function Navbar() {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'navBar' },
+	    { id: 'navBar' },
 	    _react2.default.createElement(
 	      _reactRouterDom.NavLink,
 	      { exact: true, to: '/', activeClassName: 'selected' },

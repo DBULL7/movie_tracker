@@ -12,10 +12,28 @@ body {
   margin: 0;
 }
 
+.selected {
+  color: #FD7F21;
+  text-decoration: none;
+}
+
+.login-form {
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
 #page {
   width: 100%;
   height: 100vh;
   background-color: #001F3F;
+}
+
+#navBar {
+  display: flex;
+  justify-content: space-around;
 }
 
 #CreateAccount {
@@ -33,4 +51,23 @@ body {
 
 #create-account-title {
   color: #FD7F21;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#login-title {
+  color: #FD7F21;
+}
+
+#login-button {
+  color: #FFFFFF;
+  background-color: #0074D9;
+  border: none;
+  width: 400px;
+  border-radius: 5px;
+  height: 30px;
 }
