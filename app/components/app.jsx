@@ -30,7 +30,6 @@ export default class App extends Component {
       <div id="page">
         <h1>Movie Tracker</h1>
         <Navbar/>
-        {console.log('oogah boogah', this.state.movies)}
         <Switch>
           <Route exact path='/Favorites' component={Favorites}/>
           <Route exact path='/CreateAccount' render={() => {
