@@ -15,10 +15,6 @@ export default class App extends Component {
     }
   }
 
-  componentDidMount () {
-  }
-
-
   render() {
     const { upcomingFilms } = this.props
 
