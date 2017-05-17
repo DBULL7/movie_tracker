@@ -5,7 +5,10 @@ import upcomingFilms from '../Actions/index';
 function mapStateToProps(state) {
   console.log(state);
   const newArray = [...state];
-  return newArray
+  console.log(newArray);
+  let test = Object.assign({}, state, newArray)
+  console.log(test);
+  return test
 }
 
 function mapDispatchToProps(dispatch) {

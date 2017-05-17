@@ -15,10 +15,20 @@ export default class App extends Component {
     }
   }
 
-  componentDidMount () {
+  componentWillMount () {
      fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=943e4f5ccf1cdbbcab342f134a46713a&language=en-US&page=1')
         .then(response => response.json())
         .then((movies) => (this.props.handleUpcomingFilms(movies)))
+  }
+
+  test() {
+    if(this.props.upcomingFilms[0]) {
+      return (
+        <div>
+          {this.props.upcomingFilms[0].title}
+        </div>
+      )
+    }
   }
 
 
@@ -26,9 +36,7 @@ export default class App extends Component {
     return (
       <div id="page">
         <h1>Movie Tracker</h1>
-        <div>
-          {this.props.upcomingFilms}
-        </div>
+        {this.test()}
         <Navbar/>
         <Switch>
           <Route exact path='/Favorites' component={Favorites}/>
