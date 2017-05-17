@@ -6,12 +6,5 @@ function mapStateToProps(state) {
   return state
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    handleupcomingFilms: (payload) => {
-      dispatch(upcomingFilms(payload))
-    }
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, null)(Home)

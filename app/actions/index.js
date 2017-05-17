@@ -1,17 +1,18 @@
 import getNewFilms from '../helpers/getNewFilms'
 import thunk from 'redux-thunk'
 
-// export const getMovies = (movies) => {
-//   return {
-//     type: 'GET_MOVIES',
-//     movies
-//   }
-// }
 
 export const upcomingFilms = (movies)  =>  {
   return {
     type: 'GET_MOVIES',
     movies
+  }
+}
+
+export const createAccount = (createAccount) => {
+  return {
+    type: 'CREATE_USER',
+    createAccount
   }
 }
 

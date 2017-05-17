@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 export default class CreateAccount extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
         name: '',
         email: '',
@@ -37,7 +37,8 @@ export default class CreateAccount extends Component {
                  email: this.state.email,
                  password: this.state.password})
         }).then((response) => {
-          console.log(response) 
+          this.props.handleCreateAccount(this.state)
+          console.log(response)
         })
       }
     }
