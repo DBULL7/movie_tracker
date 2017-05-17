@@ -8,20 +8,21 @@ import { Navbar } from './Navbar'
 import getNewFilms from '../helpers/getNewFilms'
 
 export default class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      movies: {},
+      favorites: {},
     }
   }
 
   componentDidMount () {
-
-    getNewFilms().then((e) => {
-      this.setState({movies: e})
-      console.log('results', this.state.movies)
-    })
+     fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=943e4f5ccf1cdbbcab342f134a46713a&language=en-US&page=1')
+        .then(response => response.json())
+        .then((movies) => (this.props.handleupcomingFilms(movies)))
+    // console.log(this.props);
+    // this.props.handleupcomingFilms()
   }
+
 
   render() {
 
@@ -29,7 +30,6 @@ export default class App extends Component {
       <div id="page">
         <h1>Movie Tracker</h1>
         <Navbar/>
-        {console.log('oogah boogah', this.state.movies)}
         <Switch>
           <Route exact path='/Favorites' component={Favorites}/>
           <Route exact path='/CreateAccount' render={() => {

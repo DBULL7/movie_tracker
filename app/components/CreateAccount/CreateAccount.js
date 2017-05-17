@@ -37,7 +37,7 @@ export default class CreateAccount extends Component {
                  email: this.state.email,
                  password: this.state.password})
         }).then((response) => {
-          console.log(response)
+          console.log(response) 
         })
       }
     }
