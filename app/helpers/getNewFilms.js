@@ -9,6 +9,8 @@ const getNewFilms = () => {
       movieHolder.vote_count = val.vote_count
       movieHolder.poster_path = val.poster_path
       movieHolder.overview = val.overview
+      movieHolder.id = val.id
+      movieHolder.release_date = val.release_date
       return movieHolder
     })
   })

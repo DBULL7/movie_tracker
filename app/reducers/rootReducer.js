@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import upcomingFilms from './upcomingFilms'
 
 const rootReducer = combineReducers({
-  upcomingFilms
+  upcomingFilms,
 })
 
 export default rootReducer;

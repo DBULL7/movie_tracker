@@ -1,3 +1,6 @@
+import getNewFilms from '../helpers/getNewFilms'
+import thunk from 'redux-thunk'
+
 // export const getMovies = (movies) => {
 //   return {
 //     type: 'GET_MOVIES',
@@ -5,11 +8,17 @@
 //   }
 // }
 
-const upcomingFilms = (payload)  =>  {
+export const upcomingFilms = (movies)  =>  {
   return {
     type: 'GET_MOVIES',
-    payload
+    movies
   }
 }
 
-export default upcomingFilms
+export const apiCall = () => {
+  return (dispatch) => {
+    return getNewFilms().then((movies) => {
+    dispatch(upcomingFilms(movies))
+  }).catch(error => {throw(error)})
+  }
+}
