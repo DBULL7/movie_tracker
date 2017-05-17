@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom'
-import { Home } from './Home'
+import HomeContainer from './HomeContainer'
 import { Login } from './Login'
 import CreateAccount from './CreateAccount/CreateAccount.js'
 import { Favorites } from './Favorites'
@@ -18,17 +18,17 @@ export default class App extends Component {
   componentDidMount () {
      fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=943e4f5ccf1cdbbcab342f134a46713a&language=en-US&page=1')
         .then(response => response.json())
-        .then((movies) => (this.props.handleupcomingFilms(movies)))
-    // console.log(this.props);
-    // this.props.handleupcomingFilms()
+        .then((movies) => (this.props.handleUpcomingFilms(movies)))
   }
 
 
   render() {
-
     return (
       <div id="page">
         <h1>Movie Tracker</h1>
+        <div>
+          {this.props.upcomingFilms}
+        </div>
         <Navbar/>
         <Switch>
           <Route exact path='/Favorites' component={Favorites}/>
@@ -40,7 +40,7 @@ export default class App extends Component {
           <Route exact path='/Login' component={Login}/>
           <Route  exact path='/' render={() => {
             return (
-              <Home/>
+              <HomeContainer />
             )
           }}/>
         </Switch>

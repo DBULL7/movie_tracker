@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import App from './app';
-// import actions
 import upcomingFilms from '../Actions/index';
 
 function mapStateToProps(state) {
-  return state
+  console.log(state);
+  const newArray = [...state];
+  return newArray
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleupcomingFilms: (payload) => {
+    handleUpcomingFilms: (payload) => {
       dispatch(upcomingFilms(payload))
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
