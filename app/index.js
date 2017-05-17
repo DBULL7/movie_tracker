@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app';
 import { BrowserRouter as Router, Route, browserHistory } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './reducers/rootReducer';
+import thunk from 'redux-thunk'
+
+import { configureStore } from './configureStore'
+import App from './components/app';
 import AppContainer from './components/AppContainer';
+import { apiCall } from './actions/index'
 
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = configureStore();
 
-const store = createStore(rootReducer,devTools);
+store.dispatch(apiCall())
 
 ReactDOM.render(
   <Provider store={store}>
