@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import App from './app';
 // import actions
-import { upcomingFilms } from './actions/index';
+import upcomingFilms from '../Actions/index';
 
-const mapStateToProps = (state) => {
+function mapStateToProps(state) {
   return state
 }
 
-const mapDispatchToProps = (dispatch) => {
-  upcomingFilms: () => {
-    console.log('fired dispatch to container upcomingFilms');
-    dispatch(upcomingFilms())
+function mapDispatchToProps(dispatch) {
+  return {
+    handleupcomingFilms: (payload) => {
+      dispatch(upcomingFilms(payload))
+    }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App)

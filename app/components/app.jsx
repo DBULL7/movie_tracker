@@ -16,8 +16,11 @@ export default class App extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props);
-    upcomingFilms()
+     fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=943e4f5ccf1cdbbcab342f134a46713a&language=en-US&page=1')
+        .then(response => response.json())
+        .then((movies) => (this.props.handleupcomingFilms(movies)))
+    // console.log(this.props);
+    // this.props.handleupcomingFilms()
   }
 
 
