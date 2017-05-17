@@ -16,18 +16,17 @@ export default class App extends Component {
   }
 
   componentDidMount () {
-     fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=943e4f5ccf1cdbbcab342f134a46713a&language=en-US&page=1')
-        .then(response => response.json())
-        .then((movies) => (this.props.handleUpcomingFilms(movies)))
   }
 
 
   render() {
+    const { upcomingFilms } = this.props
+
     return (
       <div id="page">
         <h1>Movie Tracker</h1>
         <div>
-          {this.props.upcomingFilms}
+          {upcomingFilms}
         </div>
         <Navbar/>
         <Switch>
