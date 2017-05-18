@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom'
 import HomeContainer from './HomeContainer'
-import { Login } from './Login'
+import Login from './Login.js'
 import CreateAccountContainer from './CreateAccount/CreateAccountContainer'
 import { Favorites } from './Favorites'
 import { Navbar } from './Navbar'
@@ -32,7 +32,11 @@ export default class App extends Component {
               <CreateAccountContainer history={this.props.history}/>
             )
           }}/>
-          <Route exact path='/Login' component={Login}/>
+          <Route exact path='/Login' render={() => {
+            return (
+              <Login />
+            )
+          }}/>
           <Route  exact path='/' render={() => {
             return (
               <HomeContainer />

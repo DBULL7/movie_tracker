@@ -12,6 +12,17 @@ body {
   margin: 0;
 }
 
+
+.failed-login {
+  font-size: 25px;
+  margin: 20px 0;
+  padding-top: 15px;
+  background-color: red;
+  width: 60%;
+  height: 50px;
+  border-radius: 5px;
+}
+
 .selected {
   color: #FD7F21;
   text-decoration: none;
