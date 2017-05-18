@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import Login from './Login';
 import { loginUser } from '../actions/index'
 
-// function mapStateToProps(state) {
-//   return state
-// }
+function mapStateToProps(state) {
+  return state
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -14,4 +14,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -48,15 +48,35 @@ class Login extends Component {
     }
   }
 
+  test() {
+    this.props.history.replace('/')
+  }
+
+
+  conditionalRender() {
+    if(this.props.loginUser.name) {
+      return(
+        <button onClick={() => {this.props.handleLoginUser({}); this.test() }}>Log Out</button>
+      )
+    } else {
+      return (
+        <section id="login">
+          {this.failedMessage()}
+          <h2 id="login-title">Login</h2>
+          <input onChange={(e) => {this.updateState(e.target.value, 'email')}}  className="login-form" placeholder="Email"/>
+          <input onChange={(e) => {this.updateState(e.target.value, 'password')}}  className="login-form" placeholder="Password"/>
+          <button id="login-button" onClick={() => {this.checkDatabase()}}>Login</button>
+        </section>
+      )
+    }
+  }
+
+
   render() {
     return (
-      <section id="login">
-        {this.failedMessage()}
-        <h2 id="login-title">Login</h2>
-        <input onChange={(e) => {this.updateState(e.target.value, 'email')}}  className="login-form" placeholder="Email"/>
-        <input onChange={(e) => {this.updateState(e.target.value, 'password')}}  className="login-form" placeholder="Password"/>
-        <button id="login-button" onClick={() => {this.checkDatabase()}}>Login</button>
-      </section>
+      <div>
+        {this.conditionalRender()}
+      </div>
     )
   }
 }

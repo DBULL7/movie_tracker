@@ -30,6 +30,11 @@ export const toggleFavorite = (movie) => {
   movie
 }
 
+export const logoutUser = (user) => {
+  type: 'LOGOUT_USER',
+  user
+}
+
 export const apiCall = () => {
   return (dispatch) => {
     return getNewFilms().then((movies) => {
@@ -37,6 +42,8 @@ export const apiCall = () => {
   }).catch(error => {throw(error)})
   }
 }
+
+
 
 // export const loadUsers = () => {
 //   return (dispatch) => {
