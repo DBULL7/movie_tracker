@@ -16,6 +16,14 @@ export const createAccount = (createAccount) => {
   }
 }
 
+export const loginUser = (loginUser) => {
+  console.log(loginUser);
+  return {
+    type: "LOGIN_USER",
+    loginUser
+  }
+}
+
 export const apiCall = () => {
   return (dispatch) => {
     return getNewFilms().then((movies) => {

@@ -3,7 +3,7 @@ import App from './app';
 import { upcomingFilms } from '../actions/index'
 
 function mapStateToProps(state) {
-  return { movies: state.movies }
+  return { state }
 }
 
 function mapDispatchToProps(dispatch) {
