@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 class Login extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       email: '',
       password: '',
@@ -26,6 +26,7 @@ class Login extends Component {
         body: JSON.stringify({email: this.state.email, password: this.state.password})
       }).then((results) => {
         if (results.status === 200) {
+          this.props.handleLoginUser({email: this.state.email, password: this.state.password})
           this.props.history.replace('/')
         } else {
           this.setState({failed: true})
