@@ -46,11 +46,17 @@ export default class CreateAccount extends Component {
       body: JSON.stringify({name: this.state.name,
              email: this.state.email,
              password: this.state.password})
-    }).then((response) => {
-      this.props.handleCreateAccount({name: this.state.name, email: this.state.email})
-      console.log(response)
-      this.props.history.replace('/')
-    })
+    }).then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        this.props.handleCreateAccount({id: data.id, name: this.state.name, email: this.state.email})
+      }).catch((error) => {
+        console.log(error);
+      })
+
+      // console.log(response)
+      // this.props.history.replace('/')
+    // })
   }
 
   checkDatabase() {

@@ -24,7 +24,7 @@ class Login extends Component {
       }).then((results) => results.json())
         .then((data) => {
         console.log(data)
-        this.props.handleLoginUser({email: data.data.email, name: data.data.name})
+        this.props.handleLoginUser({id: data.data.id, email: data.data.email, name: data.data.name})
         this.props.history.replace(`/`)
       }).catch((error) => {
         this.setState({failed: true})
