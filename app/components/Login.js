@@ -10,13 +10,10 @@ class Login extends Component {
     }
   }
 
-  updateEmail(input) {
-    this.setState({email: input})
+  updateState(input, stateKey) {
+    this.setState({[stateKey]: input})
   }
 
-  updatePassword(input) {
-    this.setState({password: input})
-  }
 
   checkDatabase() {
     if (this.state.email !== '' && this.state.password !== '') {
@@ -57,8 +54,8 @@ class Login extends Component {
       <section id="login">
         {this.failedMessage()}
         <h2 id="login-title">Login</h2>
-        <input onChange={(e) => {this.updateEmail(e.target.value)}}  className="login-form" placeholder="Email"/>
-        <input onChange={(e) => {this.updatePassword(e.target.value)}}  className="login-form" placeholder="Password"/>
+        <input onChange={(e) => {this.updateState(e.target.value, 'email')}}  className="login-form" placeholder="Email"/>
+        <input onChange={(e) => {this.updateState(e.target.value, 'password')}}  className="login-form" placeholder="Password"/>
         <button id="login-button" onClick={() => {this.checkDatabase()}}>Login</button>
       </section>
     )
