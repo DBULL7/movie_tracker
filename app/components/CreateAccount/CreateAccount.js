@@ -12,21 +12,10 @@ export default class CreateAccount extends Component {
     }
   }
 
-  updateName(input) {
-    this.setState({name: input})
+  updateState(input, stateKey) {
+    this.setState({[stateKey]: input})
   }
 
-  updateEmail(input) {
-    this.setState({email: input})
-  }
-
-  updatePassword(input) {
-    this.setState({password: input})
-  }
-
-  updateRetypedPassword(input) {
-    this.setState({retypedPassword: input})
-  }
 
   emailRegex() {
     if (this.state.email !== '') {
@@ -70,10 +59,10 @@ export default class CreateAccount extends Component {
       <section id="CreateAccount">
         <article id="form">
           <h2 id="create-account-title">Create Account</h2>
-          <input value={this.state.name} onChange={(e) => {this.updateName(e.target.value)}} className="create-account-form" type='text' placeholder='Name'/>
-          <input value={this.state.email} onChange={(e) => {this.updateEmail(e.target.value)}} className="create-account-form" type='text' placeholder='Email'/>
-          <input type="password" value={this.state.password}  onChange={(e) => {this.updatePassword(e.target.value)}} className="create-account-form" type='text' placeholder='Enter Your Password'/>
-          <input type={"password"} value={this.state.retypedPassword} onChange={(e) => {this.updateRetypedPassword(e.target.value)}} className="create-account-form" type='text' placeholder='Retype Your Password'/>
+          <input value={this.state.name} onChange={(e) => {this.updateState(e.target.value, 'name')}} className="create-account-form" type='text' placeholder='Name'/>
+          <input value={this.state.email} onChange={(e) => {this.updateState(e.target.value, 'email')}} className="create-account-form" type='text' placeholder='Email'/>
+          <input type="password" value={this.state.password}  onChange={(e) => {this.updateState(e.target.value, 'password')}} className="create-account-form" type='text' placeholder='Enter Your Password'/>
+          <input type={"password"} value={this.state.retypedPassword} onChange={(e) => {this.updateState(e.target.value, 'retypedPassword')}} className="create-account-form" type='text' placeholder='Retype Your Password'/>
           <button onClick={() => {this.test()}} className="create-account-button">Create Account</button>
         </article>
 
