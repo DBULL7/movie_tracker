@@ -15,7 +15,7 @@ export default class App extends Component {
   render() {
     return (
       <div id="page">
-        <Navbar/>
+        <Navbar history={this.props.history}/>
         <Switch>
           <Route exact path='/Favorites' render={() => {
             return (

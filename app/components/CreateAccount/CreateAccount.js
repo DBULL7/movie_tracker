@@ -50,6 +50,7 @@ export default class CreateAccount extends Component {
       .then((data) => {
         console.log(data)
         this.props.handleCreateAccount({id: data.id, name: this.state.name, email: this.state.email})
+        this.props.history.replace('/loggedIn')
       }).catch((error) => {
         console.log(error);
       })
