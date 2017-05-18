@@ -1,4 +1,5 @@
 import getNewFilms from '../helpers/getNewFilms'
+import getUsers from '../helpers/usersApi'
 import thunk from 'redux-thunk'
 
 
@@ -17,11 +18,16 @@ export const createAccount = (createAccount) => {
 }
 
 export const loginUser = (loginUser) => {
-  console.log(loginUser);
+  console.log('login user', loginUser);
   return {
     type: "LOGIN_USER",
     loginUser
   }
+}
+
+export const toggleFavorite = (movie) => {
+  type: 'TOGGLE_FAVORITE',
+  movie
 }
 
 export const apiCall = () => {
@@ -31,3 +37,11 @@ export const apiCall = () => {
   }).catch(error => {throw(error)})
   }
 }
+
+// export const loadUsers = () => {
+//   return (dispatch) => {
+//     return getUsers().then((movies) => {
+//       dispatch()
+//     })
+//   }
+// }
