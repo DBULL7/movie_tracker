@@ -1,17 +1,45 @@
-#main h1 {
-  background-color: #0074D9;
-  color: #001F3F;
-  margin: 0;
-}
-
-#main {
-  text-align: center;
+h1 {
+  color: #FFF;
 }
 
 body {
   margin: 0;
 }
 
+.home-title {
+  text-align: center;
+  display: block;
+}
+
+.movies-section {
+  height: 100%;
+  background-color: #001F3F;
+}
+
+.movie-content {
+  margin: 0;
+  background-color: #0074D9;
+  color: #FFF;
+  width: 400px;
+  text-align: center;
+}
+
+.movies {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #001F3F;
+}
+
+.movie {
+  margin-top: 30px;
+}
+
+a {
+  color: #FFF;
+  font-size: 23px;
+  text-decoration: none;
+}
 
 .failed-login {
   font-size: 25px;
@@ -24,7 +52,7 @@ body {
 }
 
 .selected {
-  color: #FD7F21;
+  color: red;
   text-decoration: none;
 }
 
@@ -60,8 +88,18 @@ body {
 }
 
 #navBar {
+  padding-left: 80px;
+  padding-right: 80px;
   display: flex;
+  background-color: #0074D9;
+  justify-content: space-between;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
   justify-content: space-around;
+  width: 500px;
 }
 
 #CreateAccount {
@@ -101,6 +139,7 @@ body {
 }
 
 .favorites-title {
+  text-align: center;
   color: #FD7F21;
 }
 

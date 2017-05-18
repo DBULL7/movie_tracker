@@ -10,20 +10,11 @@ import getNewFilms from '../helpers/getNewFilms'
 export default class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      favorites: {},
-    }
   }
 
   render() {
-    const { upcomingFilms } = this.props
-
     return (
       <div id="page">
-        <h1>Movie Tracker</h1>
-        <div>
-          {upcomingFilms}
-        </div>
         <Navbar/>
         <Switch>
           <Route exact path='/Favorites' component={Favorites}/>

@@ -27,7 +27,7 @@ class Login extends Component {
       }).then((results) => {
         if (results.status === 200) {
           this.props.handleLoginUser({email: this.state.email, password: this.state.password})
-          this.props.history.replace('/')
+          this.props.history.replace(`/`)
         } else {
           this.setState({failed: true})
           console.log(results)
