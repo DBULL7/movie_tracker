@@ -47,7 +47,7 @@ export default class CreateAccount extends Component {
              email: this.state.email,
              password: this.state.password})
     }).then((response) => {
-      this.props.handleCreateAccount(this.state)
+      this.props.handleCreateAccount({name: this.state.name, email: this.state.email})
       console.log(response)
       this.props.history.replace('/')
     })
