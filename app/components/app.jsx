@@ -3,7 +3,7 @@ import { Route, Link, Switch } from 'react-router-dom'
 import HomeContainer from './HomeContainer'
 import LoginContainer from './LoginContainer.js'
 import CreateAccountContainer from './CreateAccount/CreateAccountContainer'
-import { Favorites } from './Favorites'
+import FavoritesContainer from './FavoritesContainer'
 import { Navbar } from './Navbar'
 import getNewFilms from '../helpers/getNewFilms'
 
@@ -17,7 +17,11 @@ export default class App extends Component {
       <div id="page">
         <Navbar/>
         <Switch>
-          <Route exact path='/Favorites' component={Favorites}/>
+          <Route exact path='/Favorites' render={() => {
+            return (
+              <FavoritesContainer/>
+            )
+          }}/>
           <Route exact path='/CreateAccount' render={() => {
             return (
               <CreateAccountContainer history={this.props.history}/>
