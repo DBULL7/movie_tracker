@@ -28,16 +28,23 @@ export default class CreateAccount extends Component {
     this.setState({retypedPassword: input})
   }
 
+  emailRegex() {
+    if (this.state.email !== '') {
+      //stack overflow regex
+      let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      return regex.test(this.state.email)
+    }
+  }
+
+
   passwordsMatch() {
-    if (this.state.retypedPassword !== '') {
-      if (this.state.password === this.state.retypedPassword) {
-        return true
-      }
+    if (this.state.retypedPassword !== '' && this.state.password === this.state.retypedPassword) {
+      return true
     }
   }
 
   nameAndEmail() {
-    if(this.state.name !== '' && this.state.email !== '') {
+    if(this.state.name !== '' && this.emailRegex()) {
       return true
     }
   }
@@ -65,8 +72,8 @@ export default class CreateAccount extends Component {
           <h2 id="create-account-title">Create Account</h2>
           <input value={this.state.name} onChange={(e) => {this.updateName(e.target.value)}} className="create-account-form" type='text' placeholder='Name'/>
           <input value={this.state.email} onChange={(e) => {this.updateEmail(e.target.value)}} className="create-account-form" type='text' placeholder='Email'/>
-          <input value={this.state.password} onChange={(e) => {this.updatePassword(e.target.value)}} className="create-account-form" type='text' placeholder='Enter Your Password'/>
-          <input value={this.state.retypedPassword} onChange={(e) => {this.updateRetypedPassword(e.target.value)}} className="create-account-form" type='text' placeholder='Retype Your Password'/>
+          <input type="password" value={this.state.password}  onChange={(e) => {this.updatePassword(e.target.value)}} className="create-account-form" type='text' placeholder='Enter Your Password'/>
+          <input type={"password"} value={this.state.retypedPassword} onChange={(e) => {this.updateRetypedPassword(e.target.value)}} className="create-account-form" type='text' placeholder='Retype Your Password'/>
           <button onClick={() => {this.test()}} className="create-account-button">Create Account</button>
         </article>
 
