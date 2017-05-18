@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+ import { Route , Redirect } from 'react-router'
 
 export default class CreateAccount extends Component {
   constructor(props) {
@@ -27,20 +28,33 @@ export default class CreateAccount extends Component {
     this.setState({retypedPassword: input})
   }
 
-  test() {
-    if(this.state.password.value === this.state.retypedPassword.value) {
-      if(this.state.name !== '' && this.state.email !== '') {
-        fetch("api/users/new", {
-          method: "POST",
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify({name: this.state.name,
-                 email: this.state.email,
-                 password: this.state.password})
-        }).then((response) => {
-          this.props.handleCreateAccount(this.state)
-          console.log(response)
-        })
+  passwordsMatch() {
+    if (this.state.retypedPassword !== '') {
+      if (this.state.password === this.state.retypedPassword) {
+        return true
       }
+    }
+  }
+
+  nameAndEmail() {
+    if(this.state.name !== '' && this.state.email !== '') {
+      return true
+    }
+  }
+
+  test() {
+    if(this.passwordsMatch() && this.nameAndEmail()) {
+      fetch("api/users/new", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({name: this.state.name,
+               email: this.state.email,
+               password: this.state.password})
+      }).then((response) => {
+        this.props.handleCreateAccount(this.state)
+        console.log(response)
+        this.props.history.replace('/')
+      })
     }
   }
 

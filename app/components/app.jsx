@@ -29,7 +29,7 @@ export default class App extends Component {
           <Route exact path='/Favorites' component={Favorites}/>
           <Route exact path='/CreateAccount' render={() => {
             return (
-              <CreateAccountContainer/>
+              <CreateAccountContainer history={this.props.history}/>
             )
           }}/>
           <Route exact path='/Login' component={Login}/>
