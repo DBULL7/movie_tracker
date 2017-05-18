@@ -9,7 +9,7 @@ export default class CreateAccount extends Component {
         email: '',
         password: '',
         retypedPassword: '',
-        emailTaken: '',
+        emailTaken: false,
     }
   }
 
@@ -39,7 +39,7 @@ export default class CreateAccount extends Component {
     }
   }
 
-  test() {
+  addToDataBase() {
     fetch("api/users/new", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -63,10 +63,26 @@ export default class CreateAccount extends Component {
         if (results.status === 200) {
           this.setState({emailTaken: true})
         } else {
-          this.test()
+          this.addToDataBase()
           console.log(results)
         }
       })
+    }
+  }
+
+  fadeOut() {
+    setTimeout(() => {
+      this.setState({emailTaken: false})
+    }, 2500)
+  }
+
+  failedMessage() {
+    if (this.state.emailTaken) {
+      return (
+        <div className="failed-login">Email taken. Please Try Again.
+          {this.fadeOut()}
+        </div>
+      )
     }
   }
 
@@ -74,6 +90,7 @@ export default class CreateAccount extends Component {
     return (
       <section id="CreateAccount">
         <article id="form">
+          {this.failedMessage()}
           <h2 id="create-account-title">Create Account</h2>
           <input value={this.state.name} onChange={(e) => {this.updateState(e.target.value, 'name')}} className="create-account-form" type='text' placeholder='Name'/>
           <input value={this.state.email} onChange={(e) => {this.updateState(e.target.value, 'email')}} className="create-account-form" type='text' placeholder='Email'/>
