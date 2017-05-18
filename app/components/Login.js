@@ -21,14 +21,13 @@ class Login extends Component {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({email: this.state.email, password: this.state.password})
-      }).then((results) => {
-        if (results.status === 200) {
-          this.props.handleLoginUser({email: this.state.email, password: this.state.password})
-          this.props.history.replace(`/`)
-        } else {
-          this.setState({failed: true})
-          console.log(results)
-        }
+      }).then((results) => results.json())
+        .then((data) => {
+        console.log(data)
+        this.props.handleLoginUser({id: data.data.id, email: data.data.email, name: data.data.name})
+        this.props.history.replace(`/`)
+      }).catch((error) => {
+        this.setState({failed: true})
       })
     }
   }
