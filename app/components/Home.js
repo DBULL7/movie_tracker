@@ -62,7 +62,7 @@ class Home extends Component {
     this.props.history.replace(`/${route}`)
   }
 
-  test() {
+  popup() {
     if(this.state.popup) {
       return (
         <article className="popup">
@@ -82,13 +82,19 @@ class Home extends Component {
     }
   }
 
+
+  showMovie(movie) {
+    console.log(movie);
+    this.props.history.replace(`/${movie.id}`)
+  }
+
   render() {
 
     return(
       <section className="movie-section">
-        {this.test()}
+        {this.popup()}
         <section className="movies">
-            { this.props.upcomingFilms.map((movie) => <Movie handleClick={this.addFavorite.bind(this)} key={movie.id} {...movie} getFav={this.handleFavorite.bind(this)} />) }
+            { this.props.upcomingFilms.map((movie) => <Movie displayMovie={this.showMovie.bind(this)}  handleClick={this.addFavorite.bind(this)} key={movie.id} {...movie} getFav={this.handleFavorite.bind(this)} />) }
         </section>
       </section>
     )
