@@ -34,12 +34,12 @@ export default class App extends Component {
           }}/>
           <Route  exact path='/loggedIn' render={() => {
             return (
-              <HomeContainer />
+              <HomeContainer history={this.props.history}/>
             )
           }}/>
           <Route  exact path='/' render={() => {
             return (
-              <HomeContainer />
+              <HomeContainer history={this.props.history}/>
             )
           }}/>
         </Switch>
