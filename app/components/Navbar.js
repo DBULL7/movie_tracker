@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 
 export const Navbar = (props) => {
-  console.log(props);
+  console.log('NAV', props);
   return (
     <section id='navBar'>
       <NavLink className='movie-tracker' to='/'>Movie Tracker</NavLink>

@@ -16,7 +16,8 @@ export default class App extends Component {
 
     return (
       <div id="page">
-        <Navbar history={this.props.history}/>
+        <Navbar history={this.props.history} />
+        console.log('MAINPAGE', this.props.loginUser);
         <Switch>
           <Route exact path='/Favorites' render={() => {
             return (

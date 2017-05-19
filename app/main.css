@@ -256,3 +256,16 @@ a {
   height: 40px;
   font-size: 22px;
 }
+
+.individual-movie {
+  text-align: center;
+  border-radius: 8px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  z-index: 2;
+  background-color: white;
+  color: black;
+}
