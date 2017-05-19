@@ -6,13 +6,14 @@ import CreateAccountContainer from './CreateAccount/CreateAccountContainer'
 import FavoritesContainer from './FavoritesContainer'
 import { Navbar } from './Navbar'
 import getNewFilms from '../helpers/getNewFilms'
+import { Movie } from './movieCard'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
   }
-
   render() {
+
     return (
       <div id="page">
         <Navbar history={this.props.history}/>
@@ -32,9 +33,21 @@ export default class App extends Component {
               <LoginContainer history={this.props.history}/>
             )
           }}/>
+          <Route  exact path='/loggedIn' render={() => {
+            return (
+              <HomeContainer history={this.props.history}/>
+            )
+          }}/>
           <Route  exact path='/' render={() => {
             return (
-              <HomeContainer />
+              <HomeContainer history={this.props.history}/>
+            )
+          }}/>
+          <Route exact path='/:id' render={({match}) => {
+            const { upcomingFilms } = this.props.state
+            const movie = upcomingFilms.find((movie) => movie.id === parseInt(match.params.id))
+            return (
+              <Movie {...movie}/>
             )
           }}/>
         </Switch>
