@@ -14,7 +14,7 @@ export const Movie = (props) => {
         <p className="movie-content overview">{overview}</p>
       </article>
         <button className='favorite' onClick={(e) => {
-          getFav(film)}}>fav</button>
+          getFav(film)}}>FAVORITE</button>
     </article>
   );
 };

@@ -18,18 +18,18 @@ export const Navbar = (props) => {
           }}/>
           <Route exact path='/loggedIn' render={() => {
             return (
-              <section>
-                <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
+              <section className='navbar-links'>
                 <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
+                <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
                 {/* <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink> */}
               </section>
             )
           }}/>
           <Route exact path='/Favorites' render={() => {
             return (
-              <section>
-                <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
+              <section className='navbar-links'>
                 <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
+                <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
                 {/* <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink> */}
               </section>
             )
