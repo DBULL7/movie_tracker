@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Movie from './movieCard'
+import { Movie } from './movieCard'
 
 class Favorites extends Component {
   constructor(props) {
