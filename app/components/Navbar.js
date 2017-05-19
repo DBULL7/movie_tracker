@@ -21,7 +21,7 @@ export const Navbar = (props) => {
             return (
               <section>
                 <NavLink exact to='/loggedIn' activeClassName='selected'>Home</NavLink>
-                {/* <NavLink to='/Login' activeClassName='selected'>Login</NavLink> */}
+                <NavLink to='/Login' activeClassName='selected'>Logout</NavLink>
                 <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
                 {/* <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink> */}
               </section>
@@ -31,8 +31,8 @@ export const Navbar = (props) => {
             return (
               <section>
                 <NavLink exact to='/loggedIn' activeClassName='selected'>Home</NavLink>
-                {/* <NavLink to='/Login' activeClassName='selected'>Login</NavLink> */}
-                {/* <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink> */}
+                <NavLink to='/Login' activeClassName='selected'>Logout</NavLink>
+                <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
                 {/* <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink> */}
               </section>
             )
