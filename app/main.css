@@ -3,7 +3,7 @@
 }
 
 h3 {
-  padding-bottom: 15px;
+  padding: 15px 0;
   font-weight: bold;
 }
 
@@ -36,12 +36,13 @@ body {
   flex-wrap: wrap;
   background-color: #161616;
   margin-top: 5px;
-  padding-bottom: 20px;
+  padding: 0 5px 30px 5px;
 }
 
 .movie {
   margin-top: 30px;
   box-shadow: 0 4px 8px 3px rgba(153, 182, 176, 0.2), 0 6px 20px 3px rgba(153, 182, 176, 0.19);
+  position: relative;
 }
 
 a {
@@ -55,7 +56,6 @@ a {
   margin: 20px 0;
   padding-top: 15px;
   background-color: red;
-  width: 60%;
   height: 50px;
   border-radius: 5px;
 }
@@ -182,4 +182,30 @@ a {
 
 .home-title {
   color: #FFFFFF;
+}
+
+.overview {
+  padding: 45px 0;
+  height: 200px;
+}
+
+.favorite {
+  position: absolute;
+  color: white;
+  bottom: 0;
+  width: 400px;
+  background-color: #161616;
+  border: none;
+  box-shadow: 0 4px 8px 3px rgba(153, 182, 176, 0.2), 0 6px 20px 3px rgba(153, 182, 176, 0.19);
+  height: 30px;
+  outline: none;
+}
+
+.favorite-selected {
+  box-shadow: 0 4px 8px 3px rgba(128, 21, 21, 0.2), 0 6px 20px 3px rgba(128, 21, 21, 0.2);
+  color: rgba(128, 21, 21);
+}
+
+.movie-selected {
+  box-shadow: 0 4px 8px 3px rgba(128, 21, 21, 0.2), 0 6px 20px 3px rgba(128, 21, 21, 0.2);
 }

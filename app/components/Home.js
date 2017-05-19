@@ -23,7 +23,6 @@ class Home extends Component {
 
     return(
       <section className="movie-section">
-        <h2 className="home-title">Home</h2>
         <section className="movies">
             { this.props.upcomingFilms.map((movie) => <Movie key={movie.id} {...movie} getFav={this.handleFavorite.bind(this)} />) }
         </section>
