@@ -1,4 +1,4 @@
-h1 {
+.movie-tracker {
   color: #FFF;
 }
 
@@ -35,6 +35,8 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
   background-color: #161616;
+  margin-top: 5px;
+  padding-bottom: 20px;
 }
 
 .movie {
@@ -119,15 +121,17 @@ a {
   padding-left: 80px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   box-shadow: 4px 0 8px 3px rgba(153, 182, 176, 0.2);
+  height: 75px;
 }
 
 .navbar-links {
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  width: 500px;
+  width: 330px;
   padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 #CreateAccount {
