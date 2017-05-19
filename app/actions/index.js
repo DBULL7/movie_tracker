@@ -41,7 +41,7 @@ export const apiCall = () => {
   return (dispatch) => {
     return getNewFilms().then((movies) => {
     dispatch(upcomingFilms(movies))
-  }).catch(error => {throw(error)})
+    }).catch(error => {throw(error)})
   }
 }
 

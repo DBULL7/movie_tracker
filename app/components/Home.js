@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Movie } from './movieCard'
 
+
 class Home extends Component {
   constructor(props){
     super(props)

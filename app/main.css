@@ -1,9 +1,15 @@
-h1 {
+.movie-tracker {
   color: #FFF;
+}
+
+h3 {
+  padding-bottom: 15px;
+  font-weight: bold;
 }
 
 body {
   margin: 0;
+  font-family: 'Open Sans', serif;
 }
 
 .home-title {
@@ -13,12 +19,12 @@ body {
 
 .movies-section {
   height: 100%;
-  background-color: #001F3F;
+  background-color: #161616;
 }
 
 .movie-content {
   margin: 0;
-  background-color: #0074D9;
+  background-color: #161616;
   color: #FFF;
   width: 400px;
   text-align: center;
@@ -28,11 +34,14 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #001F3F;
+  background-color: #161616;
+  margin-top: 5px;
+  padding-bottom: 20px;
 }
 
 .movie {
   margin-top: 30px;
+  box-shadow: 0 4px 8px 3px rgba(153, 182, 176, 0.2), 0 6px 20px 3px rgba(153, 182, 176, 0.19);
 }
 
 a {
@@ -52,7 +61,7 @@ a {
 }
 
 .selected {
-  color: red;
+  color: #395352;
   text-decoration: none;
 }
 
@@ -62,7 +71,15 @@ a {
   border: none;
   width: 400px;
   margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
 }
+
+.login-form:focus {
+  background: #FAFAD2;
+}
+
+
 
 .create-account-form {
   height: 25px;
@@ -70,6 +87,12 @@ a {
   border: none;
   width: 400px;
   margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.create-account-form:focus {
+  background-color: #FAFAD2;
 }
 
 .create-account-button {
@@ -78,28 +101,37 @@ a {
   border: none;
   width: 400px;
   color: #FFFFFF;
-  background-color: #0074D9;
+  font-size: 18px;
+  border: 1px solid rgba(153, 182, 176, 0.2);
+  background-color: #161616;
+}
+
+.create-account-button:hover {
+  background-color: rgba(153, 182, 176, 0.2);
 }
 
 #page {
   width: 100%;
   height: 100vh;
-  background-color: #001F3F;
+  background-color: #161616;
 }
 
 #navBar {
+  background: url('../images/lights.jpg');
   padding-left: 80px;
-  padding-right: 80px;
   display: flex;
-  background-color: #0074D9;
   justify-content: space-between;
+  align-items: center;
+  box-shadow: 4px 0 8px 3px rgba(153, 182, 176, 0.2);
+  height: 75px;
 }
 
 .navbar-links {
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  width: 500px;
+  width: 330px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 #CreateAccount {
@@ -116,7 +148,7 @@ a {
 }
 
 #create-account-title {
-  color: #FD7F21;
+  color: #FFFFFF;
 }
 
 #login {
@@ -126,23 +158,28 @@ a {
 }
 
 #login-title {
-  color: #FD7F21;
+  color: #FFFFFF;
 }
 
 #login-button {
   color: #FFFFFF;
-  background-color: #0074D9;
-  border: none;
+  font-size: 18px;
+  background-color: #161616;
+  border: 1px solid rgba(153, 182, 176, 0.2);
   width: 400px;
   border-radius: 5px;
   height: 30px;
 }
 
+#login-button:hover {
+  background-color: rgba(153, 182, 176, 0.2);
+}
+
 .favorites-title {
   text-align: center;
-  color: #FD7F21;
+  color: #161616;
 }
 
 .home-title {
-  color: #FD7F21;
+  color: #FFFFFF;
 }

@@ -5,14 +5,13 @@ export const Navbar = (props) => {
   console.log(props);
   return (
     <section id='navBar'>
-      <h1>Movie Tracker</h1>
-      <section className="navbar-links">
+      <NavLink className='movie-tracker' to='/'>Movie Tracker</NavLink>
+      <section>
         <Switch>
           <Route  exact path='/' render={() => {
             return (
-              <section>
-                <NavLink exact to='/' activeClassName='selected'>Home</NavLink>
-                <NavLink to='/Login' activeClassName='selected'>Login</NavLink>
+              <section className="navbar-links">
+                <NavLink to='/Login' activeClassName='selected'>Log In</NavLink>
                 <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink>
               </section>
             )
@@ -20,8 +19,7 @@ export const Navbar = (props) => {
           <Route exact path='/loggedIn' render={() => {
             return (
               <section>
-                <NavLink exact to='/loggedIn' activeClassName='selected'>Home</NavLink>
-                <NavLink to='/Login' activeClassName='selected'>Logout</NavLink>
+                <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
                 <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
                 {/* <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink> */}
               </section>
@@ -30,8 +28,7 @@ export const Navbar = (props) => {
           <Route exact path='/Favorites' render={() => {
             return (
               <section>
-                <NavLink exact to='/loggedIn' activeClassName='selected'>Home</NavLink>
-                <NavLink to='/Login' activeClassName='selected'>Logout</NavLink>
+                <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
                 <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
                 {/* <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink> */}
               </section>
