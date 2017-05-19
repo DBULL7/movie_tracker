@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import {Favorites} from './Favorites'
 // import loadUser from './CreateAccount';
 // import {bindActionCreators} from 'redux'
-// import { toggleFavorite } from '../../actions/index'
+import { toggleFavorite } from '../actions/index'
 
 function mapStateToProps(state) {
   return state
