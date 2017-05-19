@@ -32,6 +32,11 @@ export default class App extends Component {
               <LoginContainer history={this.props.history}/>
             )
           }}/>
+          <Route  exact path='/loggedIn' render={() => {
+            return (
+              <HomeContainer />
+            )
+          }}/>
           <Route  exact path='/' render={() => {
             return (
               <HomeContainer />
