@@ -12,12 +12,7 @@ export const Movie = (props) => {
       <p className="movie-content">{release_date}</p>
       <p className="movie-content">{overview}</p>
       <button className='favorite' onClick={() => {
-                                    saveMovie(film)}}>fav</button>
+                                    toggleFavorite(film)}}>fav</button>
     </article>
   );
 };
-
-export const saveMovie = (film) => {
-  console.log('film', film)
-  toggleFavorite(film)
-}

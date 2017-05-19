@@ -2,8 +2,14 @@ h1 {
   color: #FFF;
 }
 
+h3 {
+  padding-bottom: 15px;
+  font-weight: bold;
+}
+
 body {
   margin: 0;
+  font-family: 'Open Sans', serif;
 }
 
 .home-title {
@@ -13,12 +19,12 @@ body {
 
 .movies-section {
   height: 100%;
-  background-color: #001F3F;
+  background-color: #161616;
 }
 
 .movie-content {
   margin: 0;
-  background-color: #0074D9;
+  background-color: #161616;
   color: #FFF;
   width: 400px;
   text-align: center;
@@ -28,11 +34,12 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #001F3F;
+  background-color: #161616;
 }
 
 .movie {
   margin-top: 30px;
+  box-shadow: 0 4px 8px 3px rgba(153, 182, 176, 0.2), 0 6px 20px 3px rgba(153, 182, 176, 0.19);
 }
 
 a {
@@ -52,7 +59,7 @@ a {
 }
 
 .selected {
-  color: red;
+  color: #395352;
   text-decoration: none;
 }
 
@@ -78,21 +85,21 @@ a {
   border: none;
   width: 400px;
   color: #FFFFFF;
-  background-color: #0074D9;
+  background-color: #161616;
 }
 
 #page {
   width: 100%;
   height: 100vh;
-  background-color: #001F3F;
+  background-color: #161616;
 }
 
 #navBar {
+  background: url('../images/lights.jpg');
   padding-left: 80px;
-  padding-right: 80px;
   display: flex;
-  background-color: #0074D9;
   justify-content: space-between;
+  box-shadow: 4px 0 8px 3px rgba(153, 182, 176, 0.2);
 }
 
 .navbar-links {
@@ -100,6 +107,7 @@ a {
   align-items: center;
   justify-content: space-around;
   width: 500px;
+  padding-top: 25px;
 }
 
 #CreateAccount {
@@ -116,7 +124,7 @@ a {
 }
 
 #create-account-title {
-  color: #FD7F21;
+  color: #FFFFFF;
 }
 
 #login {
@@ -126,12 +134,12 @@ a {
 }
 
 #login-title {
-  color: #FD7F21;
+  color: #FFFFFF;
 }
 
 #login-button {
   color: #FFFFFF;
-  background-color: #0074D9;
+  background-color: #161616;
   border: none;
   width: 400px;
   border-radius: 5px;
@@ -140,9 +148,9 @@ a {
 
 .favorites-title {
   text-align: center;
-  color: #FD7F21;
+  color: #161616;
 }
 
 .home-title {
-  color: #FD7F21;
+  color: #FFFFFF;
 }

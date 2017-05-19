@@ -7,7 +7,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
+  return {  
     handleLoginUser: (login) => {
       dispatch(loginUser(login))
     }

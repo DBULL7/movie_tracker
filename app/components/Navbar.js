@@ -6,11 +6,11 @@ export const Navbar = (props) => {
   return (
     <section id='navBar'>
       <h1>Movie Tracker</h1>
-      <section className="navbar-links">
+      <section>
         <Switch>
           <Route  exact path='/' render={() => {
             return (
-              <section>
+              <section className="navbar-links">
                 <NavLink exact to='/' activeClassName='selected'>Home</NavLink>
                 <NavLink to='/Login' activeClassName='selected'>Login</NavLink>
                 <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink>
