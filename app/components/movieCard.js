@@ -4,7 +4,7 @@ import { toggleFavorite } from '../actions/'
 
 export const Movie = (props) => {
   const film = props
-  const { title, overview, release_date, poster_path, getFav } = props
+  const { title, overview, release_date, poster_path, getFav, handleClick } = props
   return (
     <article className='movie'>
       <h3 className="movie-content">{title}</h3>
@@ -12,7 +12,7 @@ export const Movie = (props) => {
       <p className="movie-content">{release_date}</p>
       <p className="movie-content">{overview}</p>
       <button className='favorite' onClick={(e) => {
-                                    getFav(film)}}>fav</button>
+                                    getFav(film); handleClick(film)}}>fav</button>
 
     </article>
   );
