@@ -25,9 +25,11 @@ export const loginUser = (loginUser) => {
   }
 }
 
-export const toggleFavorite = (movie) => {
-  type: 'TOGGLE_FAVORITE',
-  movie
+export const toggleFavorite = (film) => {
+  return {
+    type: 'TOGGLE_FAVORITE',
+    film
+  }
 }
 
 export const logoutUser = (user) => {
