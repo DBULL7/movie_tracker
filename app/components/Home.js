@@ -19,12 +19,38 @@ class Home extends Component {
                                      vote_count: vote_count})
   }
 
+  addFavorite(movie) {
+    if (!this.props.loginUser.name) {
+      return
+    }
+    const {title, overview, release_date, poster_path, id, vote_average} = movie
+    fetch('api/users/favorites/new', {
+      method: "POST",
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        title: title,
+        overview: overview,
+        release_date: release_date,
+        poster_path: poster_path,
+        user_id: this.props.loginUser.id,
+        movie_id: id,
+        vote_average: vote_average,
+        overview: overview,
+      })
+    }).then((results) => results.json())
+    .then((data) => {
+      console.log(data);
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
+
   render() {
 
     return(
       <section className="movie-section">
         <section className="movies">
-            { this.props.upcomingFilms.map((movie) => <Movie key={movie.id} {...movie} getFav={this.handleFavorite.bind(this)} />) }
+            { this.props.upcomingFilms.map((movie) => <Movie handleClick={this.addFavorite.bind(this)} key={movie.id} {...movie} getFav={this.handleFavorite.bind(this)} />) }
         </section>
       </section>
     )
