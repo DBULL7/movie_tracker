@@ -1,11 +1,15 @@
 const favoriteReducer = (state = [], action) => {
   switch (action.type) {
     case 'TOGGLE_FAVORITE':
-    console.log('WAAAAAH', action.film);
-      if(!state.length) {
-        return action.film
+      console.log("STATE", state);
+      if(state.length < 1) {
+        let blankSlate = action.film
+        return [blankSlate]
       } else {
-        return Object.assign([], state, action.film)
+        let tempState = state
+        tempState[tempState.length] = action.film
+        console.log('tempState', tempState);
+        return tempState
       }
     default:
       return state

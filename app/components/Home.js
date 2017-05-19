@@ -5,7 +5,6 @@ import { Movie } from './movieCard'
 class Home extends Component {
   constructor(props){
     super(props)
-    console.log('boogah', this.props)
   }
 
   handleFavorite(input) {

@@ -1,19 +1,17 @@
 import { connect } from 'react-redux'
-import {Favorites} from './Favorites'
-// import loadUser from './CreateAccount';
-// import {bindActionCreators} from 'redux'
+import Favorites from './Favorites'
 import { toggleFavorite } from '../actions/index'
 
 function mapStateToProps(state) {
   return state
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     handleToggleFavorite: (film) => {
-//       dispatch(toggleFavorite(film))
-//     }
-//   }
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    handleToggleFavorite: (film) => {
+      dispatch(toggleFavorite(film))
+    }
+  }
+}
 
-export default connect(mapStateToProps, null)(Favorites)
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites)
