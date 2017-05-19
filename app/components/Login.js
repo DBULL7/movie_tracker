@@ -62,7 +62,7 @@ class Login extends Component {
       return (
         <section id="login">
           {this.failedMessage()}
-          <h2 id="login-title">Login</h2>
+          <h2 id="login-title">Log In</h2>
           <input onChange={(e) => {this.updateState(e.target.value, 'email')}}  className="login-form" placeholder="Email"/>
           <input onChange={(e) => {this.updateState(e.target.value, 'password')}}  className="login-form" placeholder="Password"/>
           <button id="login-button" onClick={() => {this.checkDatabase()}}>Login</button>
