@@ -7,26 +7,30 @@ class Home extends Component {
     super(props)
     this.state = {
       popup: false,
+      selectedMovie: {}
     }
   }
 
   handleFavorite(input) {
-    const { id, overview, poster_path, release_date, title, vote_average, vote_count } = input
-    this.props.handleToggleFavorite({id: id,
-                                     overview: overview,
-                                     poster_path: poster_path,
-                                     release_date: release_date,
-                                     title: title,
-                                     vote_average: vote_average,
-                                     vote_count: vote_count})
+    this.addFavorite(input)
+    if(this.props.loginUser.name) {
+      const { id, overview, poster_path, release_date, title, vote_average, vote_count } = input
+      this.props.handleToggleFavorite({id: id,
+                                       overview: overview,
+                                       poster_path: poster_path,
+                                       release_date: release_date,
+                                       title: title,
+                                       vote_average: vote_average,
+                                       vote_count: vote_count})
+    }
   }
-
   addFavorite(movie) {
     if (!this.props.loginUser.name) {
       this.setState({popup: true})
       return
     }
     const {title, overview, release_date, poster_path, id, vote_average} = movie
+
     fetch('api/users/favorites/new', {
       method: "POST",
       headers: {'Content-Type':'application/json'},
@@ -83,10 +87,17 @@ class Home extends Component {
   }
 
 
-  showMovie(movie) {
-    console.log(movie);
-    this.props.history.replace(`/${movie.id}`)
-  }
+  // showMovie(movie) {
+  //   console.log(movie)
+  //   this.setState({selectedMovie: movie})
+  //   // this.props.history.replace(`/${movie.id}`)
+  //   if()
+  //   return (
+  //     <div className="individual-movie">
+  //       YEAARGH
+  //     </div>
+  //   )
+  // }
 
   render() {
 
@@ -94,7 +105,7 @@ class Home extends Component {
       <section className="movie-section">
         {this.popup()}
         <section className="movies">
-            { this.props.upcomingFilms.map((movie) => <Movie displayMovie={this.showMovie.bind(this)}  handleClick={this.addFavorite.bind(this)} key={movie.id} {...movie} getFav={this.handleFavorite.bind(this)} />) }
+            { this.props.upcomingFilms.map((movie) => <Movie displayMovie={this.showMovie.bind(this)}  key={movie.id} {...movie} getFav={this.handleFavorite.bind(this)} />) }
         </section>
       </section>
     )
