@@ -69,7 +69,15 @@ a {
   border: none;
   width: 400px;
   margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
 }
+
+.login-form:focus {
+  background: #FAFAD2;
+}
+
+
 
 .create-account-form {
   height: 25px;
@@ -77,6 +85,12 @@ a {
   border: none;
   width: 400px;
   margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.create-account-form:focus {
+  background-color: #FAFAD2;
 }
 
 .create-account-button {
@@ -85,7 +99,13 @@ a {
   border: none;
   width: 400px;
   color: #FFFFFF;
+  font-size: 18px;
+  border: 1px solid rgba(153, 182, 176, 0.2);
   background-color: #161616;
+}
+
+.create-account-button:hover {
+  background-color: rgba(153, 182, 176, 0.2);
 }
 
 #page {
@@ -139,11 +159,16 @@ a {
 
 #login-button {
   color: #FFFFFF;
+  font-size: 18px;
   background-color: #161616;
-  border: none;
+  border: 1px solid rgba(153, 182, 176, 0.2);
   width: 400px;
   border-radius: 5px;
   height: 30px;
+}
+
+#login-button:hover {
+  background-color: rgba(153, 182, 176, 0.2);
 }
 
 .favorites-title {
