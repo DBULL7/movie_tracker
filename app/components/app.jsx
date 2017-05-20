@@ -7,17 +7,25 @@ import FavoritesContainer from './FavoritesContainer'
 import { Navbar } from './Navbar'
 import getNewFilms from '../helpers/getNewFilms'
 import { Movie } from './movieCard'
+import { checkLocalStorage, autoLogin }  from '../helpers/checkLocalStorage'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
+  }
+
+  test() {
+    async function test2 () {
+      let test3 =  await autoLogin(checkLocalStorage())
+      console.log(test3);
+    }
   }
   render() {
 
     return (
       <div id="page">
         <Navbar history={this.props.history} />
-        console.log('MAINPAGE', this.props.loginUser);
+        {this.test()}
         <Switch>
           <Route exact path='/Favorites' render={() => {
             return (

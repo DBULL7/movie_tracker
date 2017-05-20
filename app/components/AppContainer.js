@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from './app';
-import { upcomingFilms } from '../actions/index'
+import { upcomingFilms, loginUser } from '../actions/index'
 
 function mapStateToProps(state) {
   return { state }
@@ -10,6 +10,9 @@ function mapDispatchToProps(dispatch) {
   return {
     handleUpcomingFilms: (movies) => {
       dispatch(upcomingFilms(movies))
+    },
+    handleLoginUser: (login) => {
+      dispatch(loginUser(login))
     }
   }
 }
