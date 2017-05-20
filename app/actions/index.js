@@ -32,10 +32,10 @@ export const toggleFavorite = (film) => {
   }
 }
 
-export const logoutUser = (user) => {
-  type: 'LOGOUT_USER',
-  user
-}
+// export const logoutUser = (user) => {
+//   type: 'LOGOUT_USER',
+//   user
+// }
 
 export const apiCall = () => {
   return (dispatch) => {
