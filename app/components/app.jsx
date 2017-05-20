@@ -7,17 +7,30 @@ import FavoritesContainer from './FavoritesContainer'
 import { Navbar } from './Navbar'
 import getNewFilms from '../helpers/getNewFilms'
 import { Movie } from './movieCard'
+import { checkLocalStorage, autoLogin }  from '../helpers/checkLocalStorage'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
+  }
+
+  handleAutoLogin() {
+    const { loginUser } = this.props.state
+    if(loginUser.email) {
+      return
+    } else {
+      let localStorageExists = autoLogin(checkLocalStorage())
+      if (localStorageExists) {
+        this.props.handleLoginUser(localStorageExists)
+      }
+    }
   }
   render() {
 
     return (
       <div id="page">
         <Navbar history={this.props.history} />
-        console.log('MAINPAGE', this.props.loginUser);
+        {this.handleAutoLogin()}
         <Switch>
           <Route exact path='/Favorites' render={() => {
             return (

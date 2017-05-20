@@ -28,6 +28,9 @@ class Login extends Component {
         .then((data) => {
         console.log(data)
         this.props.handleLoginUser({id: data.data.id, email: data.data.email, name: data.data.name})
+        localStorage.setItem('MovieTracker', JSON.stringify({id: data.data.id, email: this.state.email, password: this.state.password}))
+        // let test = JSON.parse(localStorage.getItem('MovieTracker'))
+        // console.log(test.email)
         this.props.history.replace(`/loggedIn`)
       }).catch((error) => {
         this.setState({failed: true})
@@ -51,7 +54,8 @@ class Login extends Component {
     }
   }
 
-  test() {
+  logout() {
+    localStorage.clear()
     this.props.history.replace('/')
   }
 
@@ -59,7 +63,9 @@ class Login extends Component {
   conditionalRender() {
     if(this.props.loginUser.name) {
       return(
-        <button onClick={() => {this.props.handleLoginUser({}); this.test() }}>Log Out</button>
+        <div className="logout">
+          <button className="logout-button" onClick={() => {this.props.handleLoginUser({}); this.logout() }}>Log Out</button>
+        </div>
       )
     } else {
       return (
