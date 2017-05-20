@@ -14,6 +14,10 @@ export default class App extends Component {
     super(props)
   }
 
+  // componentWillMount() {
+  //   this.getAllFavorites()
+  // }
+
   handleAutoLogin() {
     const { loginUser } = this.props.state
     if(loginUser.email) {
@@ -22,15 +26,32 @@ export default class App extends Component {
       let localStorageExists = autoLogin(checkLocalStorage())
       if (localStorageExists) {
         this.props.handleLoginUser(localStorageExists)
+        this.getAllFavorites(localStorageExists.id)
       }
     }
   }
+
+  getAllFavorites(id) {
+    // const { loginUser } = this.props.state
+    // let id = id
+    fetch(`api/users/${id}/favorites`)
+    .then((results) => results.json())
+    .then((data) => {
+      console.log(data);
+      this.props.handleGetAllFavorites(data.data)
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
+
+
   render() {
 
     return (
       <div id="page">
         <Navbar history={this.props.history} />
         {this.handleAutoLogin()}
+
         <Switch>
           <Route exact path='/Favorites' render={() => {
             return (

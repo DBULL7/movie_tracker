@@ -45,6 +45,13 @@ export const apiCall = () => {
   }
 }
 
+export const getUserFavorites = (allFavorites) => {
+  return {
+    type: 'LOAD_FAVORITES',
+    allFavorites
+  }
+}
+
 
 
 // export const loadUsers = () => {

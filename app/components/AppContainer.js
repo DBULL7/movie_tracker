@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from './app';
-import { upcomingFilms, loginUser } from '../actions/index'
+import { upcomingFilms, loginUser, getUserFavorites } from '../actions/index'
 
 function mapStateToProps(state) {
   return { state }
@@ -13,6 +13,9 @@ function mapDispatchToProps(dispatch) {
     },
     handleLoginUser: (login) => {
       dispatch(loginUser(login))
+    },
+    handleGetAllFavorites: (allFavorites) => {
+      dispatch(getUserFavorites(allFavorites))
     }
   }
 }
