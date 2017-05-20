@@ -63,7 +63,9 @@ class Login extends Component {
   conditionalRender() {
     if(this.props.loginUser.name) {
       return(
-        <button onClick={() => {this.props.handleLoginUser({}); this.logout() }}>Log Out</button>
+        <div className="logout">
+          <button className="logout-button" onClick={() => {this.props.handleLoginUser({}); this.logout() }}>Log Out</button>
+        </div>
       )
     } else {
       return (

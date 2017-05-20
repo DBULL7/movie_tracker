@@ -269,3 +269,23 @@ a {
   background-color: white;
   color: black;
 }
+
+.logout {
+  display: flex;
+  justify-content: center;
+}
+
+.logout-button {
+  margin-top: 100px;
+  color: #FFFFFF;
+  font-size: 18px;
+  background-color: #161616;
+  border: 1px solid rgba(153, 182, 176, 0.2);
+  width: 400px;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.logout-button:hover {
+  background-color: rgba(153, 182, 176, 0.2);
+}
