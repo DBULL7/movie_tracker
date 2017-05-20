@@ -20,7 +20,6 @@ export default class CreateAccount extends Component {
 
   emailRegex() {
     if (this.state.email !== '') {
-      //stack overflow regex
       let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       return regex.test(this.state.email)
     }
@@ -28,16 +27,10 @@ export default class CreateAccount extends Component {
 
 
   passwordsMatch() {
-    // if (this.state.retypedPassword !== '' && this.state.password === this.state.retypedPassword) {
-    //   return true
-    // }
     return (this.state.retypedPassword !== '' && this.state.password === this.state.retypedPassword)
   }
 
   nameAndEmail() {
-    // if(this.state.name !== '' && this.emailRegex()) {
-    //   return true
-    // }
     return (this.state.name !== '' && this.emailRegex())
   }
 
@@ -52,14 +45,11 @@ export default class CreateAccount extends Component {
       .then((data) => {
         console.log(data)
         this.props.handleCreateAccount({id: data.id, name: this.state.name, email: this.state.email})
+        localStorage.setItem('MovieTracker', JSON.stringify({email: this.state.email, password: this.state.password}))
         this.props.history.replace('/loggedIn')
       }).catch((error) => {
         console.log(error);
       })
-
-      // console.log(response)
-      // this.props.history.replace('/')
-    // })
   }
 
   checkDatabase() {
