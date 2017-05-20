@@ -26,14 +26,14 @@ class Favorites extends Component {
       console.log(results);
     })
   }
-  
+
   render() {
 
     return(
       <section className="movie-section">
         <h2 className="home-title">Favorites</h2>
         <section className="movies">
-            { this.props.favoriteReducer.map((movie) => <Movie key={movie.id} {...movie} getFav={this.handleFavorite.bind(this)} />) }
+            { this.props.allFavorites.map((movie, index) => <Movie key={index} {...movie} getFav={this.handleFavorite.bind(this)} />) }
         </section>
       </section>
     )
