@@ -26,7 +26,7 @@ class Favorites extends Component {
       console.log(results);
     })
   }
-
+  
   render() {
 
     return(
