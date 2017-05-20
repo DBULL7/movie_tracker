@@ -14,10 +14,6 @@ export default class App extends Component {
     super(props)
   }
 
-  // componentWillMount() {
-  //   this.getAllFavorites()
-  // }
-
   handleAutoLogin() {
     const { loginUser } = this.props.state
     if(loginUser.email) {
@@ -32,8 +28,6 @@ export default class App extends Component {
   }
 
   getAllFavorites(id) {
-    // const { loginUser } = this.props.state
-    // let id = id
     fetch(`api/users/${id}/favorites`)
     .then((results) => results.json())
     .then((data) => {
