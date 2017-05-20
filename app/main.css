@@ -1,3 +1,10 @@
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', serif;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 .movie-tracker {
   color: #FFF;
 }
@@ -5,11 +12,6 @@
 h3 {
   padding: 15px 0;
   font-weight: bold;
-}
-
-body {
-  margin: 0;
-  font-family: 'Open Sans', serif;
 }
 
 .home-title {
@@ -211,6 +213,7 @@ a {
 }
 
 .popup {
+  border: 1px solid #777777;
   text-align: center;
   border-radius: 8px;
   position: fixed;
@@ -257,7 +260,7 @@ a {
   font-size: 22px;
 }
 
-.individual-movie {
+.single-movie {
   text-align: center;
   border-radius: 8px;
   position: fixed;
@@ -268,6 +271,46 @@ a {
   z-index: 2;
   background-color: white;
   color: black;
+  padding-bottom: 20px;
+}
+
+.single-movie-title {
+  text-align: center;
+  font-weight: 700;
+}
+
+.single-movie-info {
+  text-align: center;
+}
+
+.single-movie-poster {
+  background-color: #000000;
+  height: 50vh;
+  margin: 0;
+  border:1px solid #777777;
+}
+
+.single-movie-overview {
+  font-size: 14px;
+  text-align: center;
+  margin: 15px auto;
+  width: 80%;
+}
+
+.single-movie-data {
+  font-size: 14px;
+  margin: 15px auto;
+  width: 80%;
+}
+
+.single-movie-favorite {
+  color: white;
+  width: 80%;
+  background-color: #161616;
+  border: none;
+  box-shadow: 0 4px 8px 3px rgba(153, 182, 176, 0.2), 0 6px 20px 3px rgba(153, 182, 176, 0.19);
+  height: 30px;
+  outline: none;
 }
 
 .logout {
