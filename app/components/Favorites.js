@@ -6,8 +6,9 @@ class Favorites extends Component {
     super(props)
   }
 
-  handleFavorite(input) {
-    const { id, overview, poster_path, release_date, title, vote_average, vote_count } = input
+  handleFavorite(movie) {
+    this.deleteFave(movie.id)
+    const { id, overview, poster_path, release_date, title, vote_average, vote_count } = movie
     this.props.handleToggleFavorite({id: id,
                                      overview: overview,
                                      poster_path: poster_path,
@@ -15,6 +16,15 @@ class Favorites extends Component {
                                      title: title,
                                      vote_average: vote_average,
                                      vote_count: vote_count})
+  }
+
+  deleteFave(movieID) {
+    const { loginUser } = this.props
+    fetch(`http://localhost:3000/api/users/${loginUser.id}/favorites/${movieID}`, {
+      method: "DELETE",
+    }).then((results) => {
+      console.log(results);
+    })
   }
 
   render() {
