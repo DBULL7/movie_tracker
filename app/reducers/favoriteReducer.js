@@ -1,4 +1,5 @@
 const favoriteReducer = (state = [], action) => {
+  console.log('favorite', action);
   switch (action.type) {
     case 'TOGGLE_FAVORITE':
       let removal = []
