@@ -14,9 +14,12 @@ class Login extends Component {
     this.setState({[stateKey]: input})
   }
 
+  checkInputs() {
+    return (this.state.email !== '' && this.state.password !== '')
+  }
 
   checkDatabase() {
-    if (this.state.email !== '' && this.state.password !== '') {
+    if (this.checkInputs()){
       fetch('/api/users', {
         method: "POST",
         headers: {"Content-Type": "application/json"},

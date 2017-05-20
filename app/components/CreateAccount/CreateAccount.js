@@ -28,15 +28,17 @@ export default class CreateAccount extends Component {
 
 
   passwordsMatch() {
-    if (this.state.retypedPassword !== '' && this.state.password === this.state.retypedPassword) {
-      return true
-    }
+    // if (this.state.retypedPassword !== '' && this.state.password === this.state.retypedPassword) {
+    //   return true
+    // }
+    return (this.state.retypedPassword !== '' && this.state.password === this.state.retypedPassword)
   }
 
   nameAndEmail() {
-    if(this.state.name !== '' && this.emailRegex()) {
-      return true
-    }
+    // if(this.state.name !== '' && this.emailRegex()) {
+    //   return true
+    // }
+    return (this.state.name !== '' && this.emailRegex())
   }
 
   addToDataBase() {
