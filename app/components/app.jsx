@@ -14,10 +14,15 @@ export default class App extends Component {
     super(props)
   }
 
-  test() {
-    async function test2 () {
-      let test3 =  await autoLogin(checkLocalStorage())
-      console.log(test3);
+  handleAutoLogin() {
+    const { loginUser } = this.props.state
+    if(loginUser.email) {
+      return
+    } else {
+      let localStorageExists = autoLogin(checkLocalStorage())
+      if (localStorageExists) {
+        this.props.handleLoginUser(localStorageExists)
+      }
     }
   }
   render() {
@@ -25,7 +30,7 @@ export default class App extends Component {
     return (
       <div id="page">
         <Navbar history={this.props.history} />
-        {this.test()}
+        {this.handleAutoLogin()}
         <Switch>
           <Route exact path='/Favorites' render={() => {
             return (
