@@ -7,7 +7,6 @@ class Home extends Component {
     super(props)
     this.state = {
       popup: false,
-      selectedMovie: {}
     }
   }
 
@@ -87,17 +86,11 @@ class Home extends Component {
   }
 
 
-  // showMovie(movie) {
-  //   console.log(movie)
-  //   this.setState({selectedMovie: movie})
-  //   // this.props.history.replace(`/${movie.id}`)
-  //   if()
-  //   return (
-  //     <div className="individual-movie">
-  //       YEAARGH
-  //     </div>
-  //   )
-  // }
+  showMovie(movie) {
+    console.log(movie);
+
+    this.props.history.replace(`/${movie.id}`)
+  }
 
   render() {
 
