@@ -26,7 +26,6 @@ class Login extends Component {
         body: JSON.stringify({email: this.state.email, password: this.state.password})
       }).then((results) => results.json())
         .then((data) => {
-        console.log(data)
         this.props.handleLoginUser({id: data.data.id, email: data.data.email, name: data.data.name})
         localStorage.setItem('MovieTracker', JSON.stringify({id: data.data.id, email: this.state.email, password: this.state.password}))
         this.props.history.replace(`/`)
@@ -53,7 +52,6 @@ class Login extends Component {
   }
 
   logout() {
-    console.log('CHECKCHECKCHECK', this.props);
     this.props.handleResetFavorites({})
     this.props.handleLoginUser({})
     localStorage.clear()

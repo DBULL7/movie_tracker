@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Movie } from './movieCard'
-import { isFavorite } from '../helpers/isFavorite'
 import { singleMovieCard } from '../helpers/singleMovieCard'
 import { popUp } from '../helpers/popUp'
 
@@ -132,10 +131,6 @@ class Home extends Component {
 
   exitSingleMovie() {
     this.setState({selectedMovie: {}})
-  }
-
-  checkFav(title, type) {
-    return isFavorite(title, type, this.props.allFavorites)
   }
 
   favoritesChange(){
