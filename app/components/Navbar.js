@@ -2,7 +2,9 @@ import React from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 
 export const Navbar = (props) => {
+  console.log('NAV', props);
   const { loggedIn } = props
+  console.log('MORE NAV', loggedIn);
   return (
     <section id='navBar'>
       <NavLink className='movie-tracker' to='/'>Movie Tracker</NavLink>
@@ -30,6 +32,7 @@ export const Navbar = (props) => {
               <section className='navbar-links'>
                 <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
                 <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
+                {/* <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink> */}
               </section>
             )
           }}/>
@@ -38,6 +41,7 @@ export const Navbar = (props) => {
               <section className='navbar-links'>
                 <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
                 <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
+                {/* <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink> */}
               </section>
             )
           }}/>

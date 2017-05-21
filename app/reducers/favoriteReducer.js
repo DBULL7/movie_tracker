@@ -19,9 +19,6 @@ const favoriteReducer = (state = [], action) => {
         tempState[tempState.length] = action.film
         return tempState
       }
-    case 'RESET_FAVORITES':
-      console.log('CASE RESET');
-      return []
     default:
       return state
     }

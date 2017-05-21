@@ -28,7 +28,7 @@ class Favorites extends Component {
     fetch(`http://localhost:3000/api/users/${loginUser.id}/favorites/${movieID}`, {
       method: "DELETE",
     }).then((results) => {
-      console.log('delete from base', results);
+      console.log(results);
     })
   }
 
