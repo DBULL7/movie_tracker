@@ -69,6 +69,7 @@ class Favorites extends Component {
     return isFavorite(title, this.props.allFavorites)
   }
 
+
   render() {
 
     return(
@@ -81,6 +82,7 @@ class Favorites extends Component {
                      key={movie.id} {...movie}
                      getFav={this.handleFavorite.bind(this)}
                      isFav={this.checkFav.bind(this)} />) }
+
         </section>
       </section>
     )
