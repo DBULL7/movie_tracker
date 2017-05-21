@@ -30,11 +30,34 @@ class Home extends Component {
     }
   }
 
+
+  compareTitles(movie) {
+    let test = true
+    this.props.allFavorites.forEach((favoritedMovie) => {
+      if (movie.title === favoritedMovie.title) {
+        test = false
+      }
+    })
+    return test
+  }
+
+  checkDatabase(movie) {
+    return (this.compareTitles(movie))
+  }
+
+
   addFavorite(movie) {
     if (!this.props.loginUser.email) {
       this.setState({popup: true})
       return
     }
+
+    if(!this.checkDatabase(movie)) {
+      console.log('Already in the DB')
+      return
+    }
+
+  
     const {title, overview, release_date, poster_path, id, vote_count, vote_average} = movie
 
     fetch('api/users/favorites/new', {
@@ -94,10 +117,12 @@ class Home extends Component {
 
 
   showMovie(movie) {
+
     if(!this.state.selectedMovie.title) {
       this.setState({selectedMovie: movie})
     }
   }
+
 
   singleMovie() {
     if(this.state.selectedMovie.title) {
