@@ -46,6 +46,15 @@ class Home extends Component {
     return (this.compareTitles(movie))
   }
 
+  deleteFave(movie) {
+    const { id } = this.props.loginUser
+
+    fetch(`http://localhost:3000/api/users/${id}/favorites/${movie.id}`, {
+      method: "DELETE",
+    }).then((results) => {
+      console.log(results);
+    })
+  }
 
   addFavorite(movie) {
     if (!this.props.loginUser.email) {
@@ -54,6 +63,7 @@ class Home extends Component {
     }
 
     if(!this.checkDatabase(movie)) {
+      this.deleteFave(movie)
       console.log('Already in the DB')
       return
     }
