@@ -12,6 +12,10 @@ class Home extends Component {
     }
   }
 
+  check(){
+    console.log('check!');
+  }
+
   handleFavorite(input) {
     this.addFavorite(input)
     if(this.props.loginUser.name) {
@@ -25,6 +29,7 @@ class Home extends Component {
                                        vote_count: vote_count})
     }
   }
+
 
   compareTitles(movie) {
     let test = true
@@ -42,7 +47,7 @@ class Home extends Component {
 
 
   addFavorite(movie) {
-    if (!this.props.loginUser.name) {
+    if (!this.props.loginUser.email) {
       this.setState({popup: true})
       return
     }
@@ -52,7 +57,8 @@ class Home extends Component {
       return
     }
 
-    const {title, overview, release_date, poster_path, id, vote_average} = movie
+  
+    const {title, overview, release_date, poster_path, id, vote_count, vote_average} = movie
 
     fetch('api/users/favorites/new', {
       method: "POST",
@@ -65,6 +71,7 @@ class Home extends Component {
         user_id: this.props.loginUser.id,
         movie_id: id,
         vote_average: vote_average,
+        vote_count: vote_count,
         overview: overview,
       })
     }).then((results) => results.json())
@@ -103,7 +110,6 @@ class Home extends Component {
               <button className='createAccount-popup-button' onClick={() => {this.changePath('CreateAccount')}}>CreateAccount</button>
             </div>
           </div>
-          // {this.fadeOut()}
         </article>
       )
     }
@@ -146,8 +152,8 @@ class Home extends Component {
     this.setState({selectedMovie: {}})
   }
 
-  checkFav(title) {
-    return isFavorite(title, this.props.allFavorites)
+  checkFav(title, type) {
+    return isFavorite(title, type, this.props.allFavorites)
   }
 
   render() {

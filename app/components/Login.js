@@ -55,16 +55,18 @@ class Login extends Component {
   }
 
   logout() {
+    this.props.handleLoginUser({})
     localStorage.clear()
     this.props.history.replace('/')
   }
 
 
   conditionalRender() {
-    if(this.props.loginUser.name) {
+    console.log('BOGUS', this.props.loginUser);
+    if(this.props.loginUser.email != undefined) {
       return(
         <div className="logout">
-          <button className="logout-button" onClick={() => {this.props.handleLoginUser({}); this.logout() }}>Log Out</button>
+          {this.logout()}
         </div>
       )
     } else {

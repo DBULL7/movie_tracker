@@ -38,12 +38,10 @@ export default class App extends Component {
     })
   }
 
-
   render() {
-
     return (
       <div id="page">
-        <Navbar history={this.props.history} />
+        <Navbar history={this.props.history} loggedIn={this.props.state.loginUser}/>
         {this.handleAutoLogin()}
 
         <Switch>
@@ -70,13 +68,6 @@ export default class App extends Component {
           <Route  exact path='/' render={() => {
             return (
               <HomeContainer history={this.props.history}/>
-            )
-          }}/>
-          <Route exact path='/:id' render={({match}) => {
-            const { upcomingFilms } = this.props.state
-            const movie = upcomingFilms.find((movie) => movie.id === parseInt(match.params.id))
-            return (
-              <Movie {...movie}/>
             )
           }}/>
         </Switch>
