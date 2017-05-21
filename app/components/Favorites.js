@@ -12,7 +12,7 @@ class Favorites extends Component {
   }
 
   handleFavorite(movie) {
-    this.deleteFave(movie.id)
+    this.deleteFave(movie.movie_id)
     const { id, overview, poster_path, release_date, title, vote_average, vote_count } = movie
     this.props.handleToggleFavorite({id: id,
                                      overview: overview,
