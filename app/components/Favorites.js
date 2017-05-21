@@ -13,7 +13,7 @@ class Favorites extends Component {
   handleFavorite(movie) {
     this.deleteFave(movie.id)
     const { id, overview, poster_path, release_date, title, vote_average, vote_count } = movie
-    this.props.state.handleToggleFavorite({id: id,
+    this.props.handleToggleFavorite({id: id,
                                      overview: overview,
                                      poster_path: poster_path,
                                      release_date: release_date,
@@ -27,7 +27,7 @@ class Favorites extends Component {
     fetch(`http://localhost:3000/api/users/${loginUser.id}/favorites/${movieID}`, {
       method: "DELETE",
     }).then((results) => {
-      console.log('delete from base', results);
+      console.log(results);
     })
   }
 
