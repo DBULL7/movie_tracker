@@ -38,20 +38,10 @@ export default class App extends Component {
     })
   }
 
-  checkUser() {
-    console.log('SHAKE IT',this.props.loginUser);
-    if(this.props.loginUser != undefined) {
-      return this.props.loginUser.name
-    } else {
-      return 'none'
-    }
-  }
-
   render() {
-    console.log(this.checkUser());
     return (
       <div id="page">
-        <Navbar history={this.props.history} loggedIn={this.checkUser()}/>
+        <Navbar history={this.props.history} loggedIn={this.props.state.loginUser}/>
         {this.handleAutoLogin()}
 
         <Switch>
