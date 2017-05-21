@@ -13,4 +13,4 @@ const isFavorite = (filmTitle, type, favsArray) => {
   }
 }
 
-export { isFavorite, }
+export { isFavorite }

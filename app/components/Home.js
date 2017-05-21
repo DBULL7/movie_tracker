@@ -18,7 +18,7 @@ class Home extends Component {
 
   handleFavorite(input) {
     this.addFavorite(input)
-    if(this.props.loginUser.name) {
+    if(this.props.loginUser.email) {
       const { id, overview, poster_path, release_date, title, vote_average, vote_count } = input
       this.props.handleToggleFavorite({id: id,
                                        overview: overview,
@@ -57,7 +57,7 @@ class Home extends Component {
       return
     }
 
-  
+
     const {title, overview, release_date, poster_path, id, vote_count, vote_average} = movie
 
     fetch('api/users/favorites/new', {
@@ -164,7 +164,7 @@ class Home extends Component {
                         <Movie displayMovie={this.showMovie.bind(this)}
                                key={movie.id} {...movie}
                                getFav={this.handleFavorite.bind(this)}
-                               isFav={this.checkFav.bind(this)}/>) }
+                               isFav={this.props.allFavorites}/>) }
         </section>
         {this.singleMovie()}
         {this.popup()}

@@ -82,7 +82,7 @@ class Favorites extends Component {
               <Movie displayMovie={this.showMovie.bind(this)}
                      key={movie.id} {...movie}
                      getFav={this.handleFavorite.bind(this)}
-                     isFav={this.checkFav.bind(this)} />) }
+                     isFav={this.props.allFavorites} />) }
 
         </section>
       </section>
