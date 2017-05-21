@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Movie } from './movieCard'
+import { isFavorite } from '../helpers/isFavorite'
 
 
 class Home extends Component {
@@ -7,6 +8,7 @@ class Home extends Component {
     super(props)
     this.state = {
       popup: false,
+      selectedMovie: {},
     }
   }
 
@@ -101,7 +103,7 @@ class Home extends Component {
               <button className='createAccount-popup-button' onClick={() => {this.changePath('CreateAccount')}}>CreateAccount</button>
             </div>
           </div>
-          {this.fadeOut()}
+          // {this.fadeOut()}
         </article>
       )
     }
@@ -110,17 +112,56 @@ class Home extends Component {
 
   showMovie(movie) {
 
-    this.props.history.replace(`/${movie.id}`)
+    if(!this.state.selectedMovie.title) {
+      this.setState({selectedMovie: movie})
+    }
+  }
+
+
+  singleMovie() {
+    if(this.state.selectedMovie.title) {
+      return (
+        <article className="single-movie">
+          <div onClick={() => {this.exitSingleMovie()}}>
+            <p className='single-movie-title'>{this.state.selectedMovie.title}</p>
+            <div className="single-movie-info">
+              <div className="single-movie-poster-container">
+                <img className='single-movie-poster'
+                     src={`https://image.tmdb.org/t/p/w300/${this.state.selectedMovie.poster_path}`} />
+               </div>
+              <p className="single-movie-overview">{this.state.selectedMovie.overview}</p>
+              <p className="single-movie-data">Release Date: {this.state.selectedMovie.release_date} |
+                                               Vote Average: {this.state.selectedMovie.vote_average} |
+                                               Vote Count: {this.state.selectedMovie.vote_count}</p>
+            </div>
+          </div>
+          <button className='single-movie-favorite' onClick={(e) => {
+              this.handleFavorite(this.state.selectedMovie)}}>FAVORITE</button>
+        </article>
+      )
+    }
+  }
+
+  exitSingleMovie() {
+    this.setState({selectedMovie: {}})
+  }
+
+  checkFav(title) {
+    return isFavorite(title, this.props.allFavorites)
   }
 
   render() {
-
     return(
       <section className="movie-section">
-        {this.popup()}
         <section className="movies">
-            { this.props.upcomingFilms.map((movie) => <Movie displayMovie={this.showMovie.bind(this)}  key={movie.id} {...movie} getFav={this.handleFavorite.bind(this)} />) }
+            { this.props.upcomingFilms.map((movie) =>
+                        <Movie displayMovie={this.showMovie.bind(this)}
+                               key={movie.id} {...movie}
+                               getFav={this.handleFavorite.bind(this)}
+                               isFav={this.checkFav.bind(this)}/>) }
         </section>
+        {this.singleMovie()}
+        {this.popup()}
       </section>
     )
   }
