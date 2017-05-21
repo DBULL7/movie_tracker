@@ -55,6 +55,8 @@ class Login extends Component {
   }
 
   logout() {
+    console.log('CHECKCHECKCHECK', this.props);
+    this.props.handleResetFavorites({})
     this.props.handleLoginUser({})
     localStorage.clear()
     this.props.history.replace('/')
@@ -62,7 +64,6 @@ class Login extends Component {
 
 
   conditionalRender() {
-    console.log('BOGUS', this.props.loginUser);
     if(this.props.loginUser.email != undefined) {
       return(
         <div className="logout">

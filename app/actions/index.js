@@ -32,6 +32,14 @@ export const toggleFavorite = (film) => {
   }
 }
 
+export const resetFavorites = (obj) => {
+  console.log('RESET_FAV');
+  return {
+    type: 'RESET_FAVORITES',
+    obj
+  }
+}
+
 // export const logoutUser = (user) => {
 //   type: 'LOGOUT_USER',
 //   user
