@@ -84,7 +84,8 @@ h3 {
 }
 
 .movie-selected {
-  box-shadow: 0 4px 8px 3px rgba(128, 21, 21, 0.2), 0 6px 20px 3px rgba(128, 21, 21, 0.2);
+  box-shadow: 0 4px 8px 3px rgba(26, 147, 223, 0.2), 0 6px 20px 3px rgba(26, 147, 223, 0.2);
+  transition-duration: 0.25s;
 }
 
 .favorite {
@@ -101,17 +102,18 @@ h3 {
   box-shadow: 0 4px 8px 3px rgba(153, 182, 176, 0.2), 0 6px 20px 3px rgba(153, 182, 176, 0.19);
   height: 30px;
   outline: none;
-  transition-duration: 0.2s;
+  transition-duration: 0.25s;
 }
 
 .favorite:hover {
   color: #999999;
-  transition-duration: 0.2s;
+  transition-duration: 0.25s;
 }
 
 .favorite-selected {
-  box-shadow: 0 4px 8px 3px rgba(128, 21, 21, 0.2), 0 6px 20px 3px rgba(128, 21, 21, 0.2);
-  color: rgba(128, 21, 21);
+  box-shadow: 0 4px 8px 3px rgba(26, 147, 223, 0.2), 0 6px 20px 3px rgba(26, 147, 223, 0.2);
+  color: rgb(26, 147, 223);
+  transition-duration: 0.25s.
 }
 
 
@@ -365,6 +367,22 @@ a {
   box-shadow: 0 4px 8px 3px rgba(153, 182, 176, 0.2), 0 6px 20px 3px rgba(153, 182, 176, 0.19);
   height: 30px;
   outline: none;
+}
+
+.favs-change {
+  text-align: center;
+  border-radius: 8px;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 50px;
+  z-index: 2;
+  background-color: white;
+  color: black;
+  padding-bottom: 20px;
+  transition-duration: 0.5s;
 }
 
 .logout {

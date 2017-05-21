@@ -9,6 +9,7 @@ class Home extends Component {
     this.state = {
       popup: false,
       selectedMovie: {},
+      favoritesChangedVar: false,
     }
   }
 
@@ -56,7 +57,8 @@ class Home extends Component {
       console.log('Already in the DB')
       return
     }
-
+    this.setState({favoritesChangedVar: true})
+    this.fadeOut()
 
     const {title, overview, release_date, poster_path, id, vote_count, vote_average} = movie
 
@@ -84,8 +86,8 @@ class Home extends Component {
 
   fadeOut() {
     setTimeout(() => {
-      this.setState({popup: false})
-    }, 3000)
+      this.setState({favoritesChangedVar: false})
+    }, 500)
   }
 
   exitPopup() {
@@ -156,6 +158,15 @@ class Home extends Component {
     return isFavorite(title, type, this.props.allFavorites)
   }
 
+  favoritesChange(){
+    if(this.state.favoritesChangedVar === true) {
+      return(
+        <div>
+        </div>
+      )
+    }
+  }
+
   render() {
     return(
       <section className="movie-section">
@@ -168,6 +179,7 @@ class Home extends Component {
         </section>
         {this.singleMovie()}
         {this.popup()}
+        {this.favoritesChange()}
       </section>
     )
   }
