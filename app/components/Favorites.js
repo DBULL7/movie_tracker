@@ -31,7 +31,6 @@ class Favorites extends Component {
     })
   }
 
-<<<<<<< HEAD
   showMovie(movie) {
     if(!this.state.selectedMovie.title) {
       this.setState({selectedMovie: movie})
@@ -67,11 +66,9 @@ class Favorites extends Component {
   }
 
   checkFav(title) {
-    return isFavorite(title, this.props.favoriteReducer)
+    return isFavorite(title, this.props.allFavorites)
   }
 
-=======
->>>>>>> master
   render() {
 
     return(
@@ -79,15 +76,11 @@ class Favorites extends Component {
         {this.singleMovie()}
         <h2 className="home-title">Favorites</h2>
         <section className="movies">
-<<<<<<< HEAD
-            { this.props.favoriteReducer.map((movie) =>
+            { this.props.allFavorites.map((movie) =>
               <Movie displayMovie={this.showMovie.bind(this)}
                      key={movie.id} {...movie}
                      getFav={this.handleFavorite.bind(this)}
                      isFav={this.checkFav.bind(this)} />) }
-=======
-            { this.props.allFavorites.map((movie, index) => <Movie key={index} {...movie} getFav={this.handleFavorite.bind(this)} />) }
->>>>>>> master
         </section>
       </section>
     )

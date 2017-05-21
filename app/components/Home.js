@@ -123,7 +123,7 @@ class Home extends Component {
   }
 
   checkFav(title) {
-    return isFavorite(title, this.props.favoriteReducer)
+    return isFavorite(title, this.props.allFavorites)
   }
 
   render() {
