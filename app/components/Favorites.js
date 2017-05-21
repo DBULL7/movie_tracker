@@ -34,6 +34,7 @@ class Favorites extends Component {
   showMovie(movie) {
     if(!this.state.selectedMovie.title) {
       this.setState({selectedMovie: movie})
+      console.log('RAAARGH', movie)
     }
   }
 
@@ -65,8 +66,8 @@ class Favorites extends Component {
     this.setState({selectedMovie: {}})
   }
 
-  checkFav(title) {
-    return isFavorite(title, this.props.allFavorites)
+  checkFav(title, type) {
+    return isFavorite(title, type, this.props.allFavorites)
   }
 
 
