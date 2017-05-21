@@ -25,14 +25,6 @@ export const Navbar = (props) => {
               )
             }
           }}/>
-          <Route exact path='/loggedIn' render={() => {
-            return (
-              <section className='navbar-links'>
-                <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
-                <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
-              </section>
-            )
-          }}/>
           <Route exact path='/Favorites' render={() => {
             return (
               <section className='navbar-links'>
@@ -47,11 +39,11 @@ export const Navbar = (props) => {
   );
 }
 
-{/* <Route path='/' render={() => {
-  return(
-    <NavLink exact to='/' activeClassName='selected'>Home</NavLink>
-    <NavLink to='/Login' activeClassName='selected'>Login</NavLink>
-    <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
-    <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink>
-  )
-}}/> */}
+// <Route exact path='/loggedIn' render={() => {
+//   return (
+//     <section className='navbar-links'>
+//       <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
+//       <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
+//     </section>
+//   )
+// }}/>

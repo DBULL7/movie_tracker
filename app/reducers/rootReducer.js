@@ -7,7 +7,6 @@ import allFavorites from './allFavorites'
 const rootReducer = combineReducers({
   upcomingFilms,
   loginUser,
-  // favoriteReducer,
   allFavorites,
 })
 

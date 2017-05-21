@@ -36,7 +36,6 @@ class Favorites extends Component {
   showMovie(movie) {
     if(!this.state.selectedMovie.title) {
       this.setState({selectedMovie: movie})
-      console.log('RAAARGH', movie)
     }
   }
 
@@ -79,14 +78,3 @@ class Favorites extends Component {
 }
 
 export default Favorites
-
-// if (props.loginUser.id) {
-//   let id = props.loginUser.id
-//   fetch(`api/users/${id}/favorites`)
-//   .then((results) => results.json())
-//   .then((data) => {
-//     console.log(data);
-//   }).catch((error) => {
-//     console.log(error);
-//   })
-// }
