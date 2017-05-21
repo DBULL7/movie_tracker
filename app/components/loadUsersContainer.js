@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-// import loadUser from './CreateAccount';
 import { loadUserSuccess } from '../../actions/index'
 
 function mapStateToProps(state) {

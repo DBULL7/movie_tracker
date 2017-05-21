@@ -1,10 +1,8 @@
 const allFavorites = (state = [], action) => {
   switch (action.type) {
     case 'LOAD_FAVORITES':
-    console.log('loading favorites');
       return action.allFavorites
     case 'TOGGLE_FAVORITE':
-    console.log('GOD DAMMIT');
       let removal = []
       state.forEach((val, index) => {
         if(val.title !== action.film.title) {
@@ -22,7 +20,6 @@ const allFavorites = (state = [], action) => {
         return tempState
       }
     case 'RESET_FAVORITES':
-      console.log('CASE RESET');
       return []
     default:
       return state
