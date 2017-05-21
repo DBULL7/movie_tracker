@@ -1,11 +1,16 @@
-const isFavorite = (filmTitle, favsArray) => {
+const isFavorite = (filmTitle, type, favsArray) => {
   let isFav = 0;
   favsArray.forEach(val => {
     if(val.title === filmTitle) {
       isFav++
     }
   })
-  return isFav === 0 ? 'favorite' : 'favorite favorite-selected'
+  if(type === 'card') {
+    return isFav === 0 ? 'movie' : 'movie movie-selected'
+  }
+  else if (type === 'button') {
+    return isFav === 0 ? 'favorite' : 'favorite favorite-selected'
+  }
 }
 
-export { isFavorite }
+export { isFavorite, }

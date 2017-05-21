@@ -38,12 +38,20 @@ export default class App extends Component {
     })
   }
 
+  checkUser() {
+    console.log('SHAKE IT',this.props.loginUser);
+    if(this.props.loginUser != undefined) {
+      return this.props.loginUser.name
+    } else {
+      return 'none'
+    }
+  }
 
   render() {
-
+    console.log(this.checkUser());
     return (
       <div id="page">
-        <Navbar history={this.props.history} />
+        <Navbar history={this.props.history} loggedIn={this.checkUser()}/>
         {this.handleAutoLogin()}
 
         <Switch>
@@ -70,13 +78,6 @@ export default class App extends Component {
           <Route  exact path='/' render={() => {
             return (
               <HomeContainer history={this.props.history}/>
-            )
-          }}/>
-          <Route exact path='/:id' render={({match}) => {
-            const { upcomingFilms } = this.props.state
-            const movie = upcomingFilms.find((movie) => movie.id === parseInt(match.params.id))
-            return (
-              <Movie {...movie}/>
             )
           }}/>
         </Switch>
