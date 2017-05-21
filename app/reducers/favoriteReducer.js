@@ -1,6 +1,4 @@
 const favoriteReducer = (state = [], action) => {
-  console.log('favorite', action);
-  console.log(state);
   switch (action.type) {
     case 'TOGGLE_FAVORITE':
       let removal = []
@@ -20,7 +18,6 @@ const favoriteReducer = (state = [], action) => {
         return tempState
       }
     case 'RESET_FAVORITES':
-      console.log('CASE RESET');
       return []
     default:
       return state

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Movie } from './movieCard'
 import { isFavorite } from '../helpers/isFavorite'
+import { singleMovieCard } from '../helpers/singleMovieCard'
 
 class Favorites extends Component {
   constructor(props) {
@@ -42,23 +43,9 @@ class Favorites extends Component {
   singleMovie() {
     if(this.state.selectedMovie.title) {
       return (
-        <article className="single-movie">
-          <div onClick={() => {this.exitSingleMovie()}}>
-            <p className='single-movie-title'>{this.state.selectedMovie.title}</p>
-            <div className="single-movie-info">
-              <div className="single-movie-poster-container">
-                <img className='single-movie-poster'
-                     src={`https://image.tmdb.org/t/p/w300/${this.state.selectedMovie.poster_path}`} />
-               </div>
-              <p className="single-movie-overview">{this.state.selectedMovie.overview}</p>
-              <p className="single-movie-data">Release Date: {this.state.selectedMovie.release_date} |
-                                               Vote Average: {this.state.selectedMovie.vote_average} |
-                                               Vote Count: {this.state.selectedMovie.vote_count}</p>
-            </div>
-          </div>
-          <button className='single-movie-favorite' onClick={(e) => {
-              this.handleFavorite(this.state.selectedMovie)}}>FAVORITE</button>
-        </article>
+        singleMovieCard(this.state.selectedMovie,
+                        this.exitSingleMovie.bind(this),
+                        this.handleFavorite.bind(this))
       )
     }
   }
