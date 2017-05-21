@@ -38,12 +38,3 @@ export const Navbar = (props) => {
     </section>
   );
 }
-
-// <Route exact path='/loggedIn' render={() => {
-//   return (
-//     <section className='navbar-links'>
-//       <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
-//       <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
-//     </section>
-//   )
-// }}/>

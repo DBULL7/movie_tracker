@@ -14,7 +14,7 @@ const mockStore = configureMockStore() ({
     email: 'tman2272@aol.com',
     password: 'password'
   },
-  favoriteReducer: []
+  allFavorites: []
 })
 
 const setup = () => {
@@ -39,7 +39,7 @@ describe('AppContainer', () => {
         email: 'tman2272@aol.com',
         password: 'password'
       },
-      favoriteReducer: []
+      allFavorites: []
     })
   })
 })
