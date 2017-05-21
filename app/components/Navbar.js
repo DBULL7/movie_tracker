@@ -2,18 +2,30 @@ import React from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 
 export const Navbar = (props) => {
+  console.log('NAV', props);
+  const { loggedIn } = props
+  console.log('MORE NAV', loggedIn);
   return (
     <section id='navBar'>
       <NavLink className='movie-tracker' to='/'>Movie Tracker</NavLink>
       <section>
         <Switch>
           <Route  exact path='/' render={() => {
-            return (
-              <section className="navbar-links">
-                <NavLink to='/Login' activeClassName='selected'>Log In</NavLink>
-                <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink>
-              </section>
-            )
+            if(loggedIn.email != undefined) {
+              return (
+                <section className='navbar-links'>
+                  <NavLink to='/Favorites' activeClassName='selected'>Favorites</NavLink>
+                  <NavLink to='/Login' activeClassName='selected'>Log Out</NavLink>
+                </section>
+              )
+            } else {
+              return (
+                <section className="navbar-links">
+                  <NavLink to='/Login' activeClassName='selected'>Log In</NavLink>
+                  <NavLink to='/CreateAccount' activeClassName='selected'>Create Account</NavLink>
+                </section>
+              )
+            }
           }}/>
           <Route exact path='/loggedIn' render={() => {
             return (
