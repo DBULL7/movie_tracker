@@ -29,8 +29,9 @@ class Home extends Component {
                                        vote_count: vote_count})
     }
   }
+
   addFavorite(movie) {
-    if (!this.props.loginUser.name) {
+    if (!this.props.loginUser.email) {
       this.setState({popup: true})
       return
     }
