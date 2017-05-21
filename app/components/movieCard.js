@@ -7,6 +7,7 @@ export const Movie = (props) => {
   const { title, overview, release_date,
           vote_average, vote_count, poster_path,
           getFav, handleClick, displayMovie, isFav } = props
+
   return (
     <article className={isFavorite(title, 'card', isFav)}>
       <button className={isFavorite(title, 'button', isFav)} onClick={(e) => {
