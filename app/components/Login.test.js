@@ -2,16 +2,13 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import AppContainer from './AppContainer';
-import App from './App';
+import LoginContainer from './LoginContainer';
+import Login from './Login';
 import rootReducer from '../reducers/rootReducer'
 import fetchMock from 'fetch-mock'
 
-
-describe('AppContainer', () => {
-
-  it('should mount without crashing', () => {
-    const mockStore = configureMockStore()({})
+describe('Login Component Tests', () => {
+  it('it should shallow mount without crashing', () => {
     const storageMock = () => {
     let storage = {}
      return {
@@ -26,9 +23,10 @@ describe('AppContainer', () => {
    }
 
    window.localStorage = storageMock()
-    const wrapper = shallow(<Provider store={mockStore}><AppContainer/></Provider>)
-    // const test = wrapper.find('.movie-tracker')
-    //
-    // expect(test.length).toEqual(1)
+    const mockStore = configureMockStore()({
+      loginUser: {id: 1, email: 'dbull', password: 'ya'}
+    })
+    console.log(mockStore)
+    const wrapper = mount(<Provider store={mockStore}><LoginContainer/></Provider>)
   })
 })
