@@ -66,7 +66,7 @@ class Favorites extends Component {
   }
 
   checkFav(title) {
-    return isFavorite(title, this.props.favoriteReducer)
+    return isFavorite(title, this.props.allFavorites)
   }
 
 
@@ -77,7 +77,6 @@ class Favorites extends Component {
         {this.singleMovie()}
         <h2 className="home-title">Favorites</h2>
         <section className="movies">
-
             { this.props.allFavorites.map((movie) =>
               <Movie displayMovie={this.showMovie.bind(this)}
                      key={movie.id} {...movie}
