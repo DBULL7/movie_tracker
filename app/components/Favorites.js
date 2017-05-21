@@ -24,6 +24,7 @@ class Favorites extends Component {
 
   deleteFave(movieID) {
     const { loginUser } = this.props
+    console.log('this should be the goddamned logged in user', loginUser)
     fetch(`http://localhost:3000/api/users/${loginUser.id}/favorites/${movieID}`, {
       method: "DELETE",
     }).then((results) => {
