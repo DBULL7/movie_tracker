@@ -45,7 +45,7 @@ export default class CreateAccount extends Component {
       .then((data) => {
         console.log(data)
         this.props.handleCreateAccount({id: data.id, name: this.state.name, email: this.state.email})
-        localStorage.setItem('MovieTracker', JSON.stringify({id: data.id, email: this.state.email, password: this.state.password}))
+        localStorage.setItem('MovieTracker', JSON.stringify({email: this.state.email, password: this.state.password}))
         this.props.history.replace('/loggedIn')
       }).catch((error) => {
         console.log(error);
