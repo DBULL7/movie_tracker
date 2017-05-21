@@ -18,7 +18,6 @@ export const createAccount = (createAccount) => {
 }
 
 export const loginUser = (loginUser) => {
-  console.log('login user', loginUser);
   return {
     type: "LOGIN_USER",
     loginUser
@@ -33,17 +32,11 @@ export const toggleFavorite = (film) => {
 }
 
 export const resetFavorites = (obj) => {
-  console.log('RESET_FAV');
   return {
     type: 'RESET_FAVORITES',
     obj
   }
 }
-
-// export const logoutUser = (user) => {
-//   type: 'LOGOUT_USER',
-//   user
-// }
 
 export const apiCall = () => {
   return (dispatch) => {
@@ -59,13 +52,3 @@ export const getUserFavorites = (allFavorites) => {
     allFavorites
   }
 }
-
-
-
-// export const loadUsers = () => {
-//   return (dispatch) => {
-//     return getUsers().then((movies) => {
-//       dispatch()
-//     })
-//   }
-// }
