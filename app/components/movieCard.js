@@ -8,8 +8,8 @@ export const Movie = (props) => {
           vote_average, vote_count, poster_path,
           getFav, handleClick, displayMovie, isFav } = props
   return (
-    <article className={isFav(title, 'card')}>
-      <button className={isFav(title, 'button')} onClick={(e) => {
+    <article className={isFavorite(title, 'card', isFav)}>
+      <button className={isFavorite(title, 'button', isFav)} onClick={(e) => {
           getFav(film)}}>FAVORITE</button>
       <article onClick={() => displayMovie(film)}>
           <h3 className='movie-content-title'>{title}</h3>
@@ -36,3 +36,18 @@ export const Movie = (props) => {
     </article>
   );
 };
+
+const isFavorite = (filmTitle, type, favsArray) => {
+  let isFav = 0;
+  favsArray.forEach(val => {
+    if(val.title === filmTitle) {
+      isFav++
+    }
+  })
+  if(type === 'card') {
+    return isFav === 0 ? 'movie' : 'movie movie-selected'
+  }
+  else if (type === 'button') {
+    return isFav === 0 ? 'favorite' : 'favorite favorite-selected'
+  }
+}
