@@ -3,7 +3,7 @@ import Favorites from './Favorites'
 import { toggleFavorite } from '../actions/index'
 
 function mapStateToProps(state) {
-  return state
+  return { state }
 }
 
 function mapDispatchToProps(dispatch) {
