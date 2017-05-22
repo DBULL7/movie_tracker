@@ -24,6 +24,7 @@ h3 {
   margin-top: 30px;
   box-shadow: 0 4px 8px 3px rgba(153, 182, 176, 0.2), 0 6px 20px 3px rgba(153, 182, 176, 0.19);
   position: relative;
+  transition-duration: 0.25s;
 }
 
 .movies-section {
@@ -109,13 +110,6 @@ h3 {
   color: #999999;
   transition-duration: 0.25s;
 }
-
-.favorite-selected {
-  box-shadow: 0 4px 8px 3px rgba(26, 147, 223, 0.2), 0 6px 20px 3px rgba(26, 147, 223, 0.2);
-  color: rgb(26, 147, 223);
-  transition-duration: 0.25s.
-}
-
 
 .movies {
   display: flex;
@@ -367,6 +361,7 @@ a {
   box-shadow: 0 4px 8px 3px rgba(153, 182, 176, 0.2), 0 6px 20px 3px rgba(153, 182, 176, 0.19);
   height: 30px;
   outline: none;
+  transition-duration: 0.25s;
 }
 
 .favs-change {
@@ -403,4 +398,15 @@ a {
 
 .logout-button:hover {
   background-color: rgba(153, 182, 176, 0.2);
+}
+
+.favorite-selected {
+  box-shadow: 0 4px 8px 3px rgba(26, 147, 223, 0.2), 0 6px 20px 3px rgba(26, 147, 223, 0.2);
+  color: rgb(26, 147, 223);
+  transition-duration: 0.25s;
+}
+
+.single-movie-selected {
+  color: rgb(26, 147, 223);
+  transition-duration: 0.25s;
 }

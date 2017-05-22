@@ -43,7 +43,8 @@ class Favorites extends Component {
       return (
         singleMovieCard(this.state.selectedMovie,
                         this.exitSingleMovie.bind(this),
-                        this.handleFavorite.bind(this))
+                        this.handleFavorite.bind(this),
+                        this.props.state.allFavorites)
       )
     }
   }
