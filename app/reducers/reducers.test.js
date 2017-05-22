@@ -86,7 +86,7 @@ describe('reducers testing', () => {
     expect(testFilms.length).toEqual(4)
     const favs = allFavorites(testFilms, {type: 'RESET_FAVORITES',
                                           film: {} })
-                                          
+
     expect(favs).toEqual([])
   })
 })

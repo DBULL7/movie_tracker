@@ -6,13 +6,13 @@ import getNewFilms from './getNewFilms'
 import { popUp } from './popUp'
 import { singleMovieCard } from './singleMovieCard'
 import getUsers from './usersApi'
-import stubbedUsers from '../data/stubbedUsers'
+// import stubbedUsers from '../data/stubbedUsers.json'
 
 import { mount, shallow } from 'enzyme';
 
 describe('helper function abound', () => {
 
-  const mockUsers = stubbedUsers
+  // const mockUsers = stubbedUsers
 
   it('popUp returns a goofy amount of html', () => {
     const popped = popUp()
@@ -28,13 +28,6 @@ describe('helper function abound', () => {
                               </div>
                             </div>
                           </article>)
-  })
-
-  it.skip('getUsers returns list of created accounts', () => {
-    fetchMock.post('/api/users', {
-      status: "success",
-      body: mockUsers,
-    })
   })
 
 })
