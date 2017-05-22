@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import CreateAccount from './CreateAccount';
 import { loginUser } from '../../actions/index'
 
-const mapStateToProps (state) => {
+const mapStateToProps = (state) => {
   return state
 }
 
