@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import fetchMock from 'fetch-mock'
+import React, { Component } from 'react';
+import fetchMock from 'fetch-mock';
 
-import { checkLocalStorage, autoLogin } from './checkLocalStorage'
-import getNewFilms from './getNewFilms'
-import { popUp } from './popUp'
-import { singleMovieCard } from './singleMovieCard'
-import getUsers from './usersApi'
-import stubbedUsers from '../data/stubbedUsers'
+import { checkLocalStorage, autoLogin } from './checkLocalStorage';
+import getNewFilms from './getNewFilms';
+import { popUp } from './popUp';
+import { singleMovieCard } from './singleMovieCard';
+import getUsers from './usersApi';
+import stubbedUsers from '../data/stubbedUsers';
 
 import { mount, shallow } from 'enzyme';
 

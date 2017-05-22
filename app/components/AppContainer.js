@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import App from './app';
 import { upcomingFilms, loginUser, getUserFavorites } from '../actions/index'
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return { state }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleUpcomingFilms: (movies) => {
       dispatch(upcomingFilms(movies))

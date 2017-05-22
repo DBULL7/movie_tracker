@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import Login from './Login';
 import { loginUser, resetFavorites } from '../actions/index'
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return state
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleLoginUser: (login) => {
       dispatch(loginUser(login))
