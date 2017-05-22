@@ -69,6 +69,10 @@ export default class CreateAccount extends Component {
     }
   }
 
+  disableButton() {
+    return (this.passwordsMatch() && this.nameAndEmail())
+  }
+
   fadeOut() {
     setTimeout(() => {
       this.setState({emailTaken: false})
@@ -95,7 +99,7 @@ export default class CreateAccount extends Component {
           <input value={this.state.email} onChange={(e) => {this.updateState(e.target.value, 'email')}} className="create-account-form email" type='text' placeholder='Email'/>
           <input type="password" value={this.state.password}  onChange={(e) => {this.updateState(e.target.value, 'password')}} className="create-account-form password" type='text' placeholder='Enter Your Password'/>
           <input type={"password"} value={this.state.retypedPassword} onChange={(e) => {this.updateState(e.target.value, 'retypedPassword')}} className="create-account-form retypedPassword" type='text' placeholder='Retype Your Password'/>
-          <button onClick={() => {this.checkDatabase()}} className="create-account-button">Create Account</button>
+          <button id="create-account-button" disabled={!(this.passwordsMatch() && this.nameAndEmail())} onClick={() => {this.checkDatabase()}} >Create Account</button>
         </article>
 
       </section>
