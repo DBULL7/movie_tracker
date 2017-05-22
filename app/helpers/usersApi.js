@@ -2,7 +2,6 @@ const getUsers = () => {
   let p1 = apiCall('api/users')
 
   return Promise.all([p1]).then(userArray => {
-    console.log(userArray)
     return userArray
   })
 }

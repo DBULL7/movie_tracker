@@ -4,7 +4,7 @@ export const singleMovieCard = (movie, exitSingleMovie, handleFavorite) => {
   console.log('ALL THE SINGLE MOVIES', movie);
   return (
     <article className="single-movie">
-      <div onClick={() => {exitSingleMovie()}}>
+      <div className="single-clicker" onClick={() => {exitSingleMovie()}}>
         <p className='single-movie-title'>{movie.title}</p>
         <div className="single-movie-info">
           <div className="single-movie-poster-container">

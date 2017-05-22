@@ -12,7 +12,7 @@ export const Movie = (props) => {
     <article className={isFavorite(title, 'card', isFav)}>
       <button className={isFavorite(title, 'button', isFav)} onClick={(e) => {
           getFav(film)}}>FAVORITE</button>
-      <article onClick={() => displayMovie(film)}>
+        <article className="movie-pop" onClick={() => displayMovie(film)}>
           <h3 className='movie-content-title'>{title}</h3>
           <img className='movie-content-poster'
             src={`https://image.tmdb.org/t/p/w300/${poster_path}`} />

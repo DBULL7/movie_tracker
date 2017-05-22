@@ -29,17 +29,17 @@ const setup = () => {
 }
 
 describe('AppContainer', () => {
-  const { Container, Component } = setup();
+  // const { Container, Component } = setup();
 
-  it('should pass the appropriate props from state', () => {
-    expect(Component.props().items).toEqual({
-      upcomingFilms: [],
-      loginUser: {
-        id: 1,
-        email: 'tman2272@aol.com',
-        password: 'password'
-      },
-      allFavorites: []
-    })
-  })
+  // it.skip('should pass the appropriate props from state', () => {
+  //   expect(Component.props().items).toEqual({
+  //     upcomingFilms: [],
+  //     loginUser: {
+  //       id: 1,
+  //       email: 'tman2272@aol.com',
+  //       password: 'password'
+  //     },
+  //     allFavorites: []
+  //   })
+  // })
 })
