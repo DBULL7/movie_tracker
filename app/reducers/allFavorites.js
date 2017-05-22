@@ -1,4 +1,5 @@
 const allFavorites = (state = [], action) => {
+  console.log('action', action);
   switch (action.type) {
     case 'LOAD_FAVORITES':
       return action.allFavorites

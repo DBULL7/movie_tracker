@@ -47,6 +47,7 @@ export const apiCall = () => {
 }
 
 export const getUserFavorites = (allFavorites) => {
+  console.log(allFavorites);
   return {
     type: 'LOAD_FAVORITES',
     allFavorites
