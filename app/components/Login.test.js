@@ -8,29 +8,44 @@ import fetchMock from 'fetch-mock'
 
 
 
+const data = {data: {
+  email: "tman2272@aol.com",
+  id: 1,
+  name: "taylor",
+  password: "password"
+}}
 
+fetchMock.post('http://localhost:3000/api/users', {
 
-fetchMock.post('/api/users', {
-  method: "POST",
-  headers: {"Content-Type": "application/json"},
-  body: JSON.stringify({
-    email: "tman2272@aol.com",
-    id: 1,
-    name: "taylor",
-    password: "password"
-  })
-})
-
-fetchMock.get('/api/users', {
-  // method: "POST",
   // headers: {"Content-Type": "application/json"},
-  body: {
-    email: "tman2272@aol.com",
-    id: 1,
-    name: "taylor",
-    password: "password"
-  }
+  body: data
+  // response: {
+  //   email: "tman2272@aol.com",
+  //   id: 1,
+  //   name: "taylor",
+  //   password: "password"
+  // }
 })
+
+// fetchMock.get('http://localhost:3000/api/users', {
+//   body: {
+//     "email": "tman2272@aol.com",
+//     "id": "1",
+//     "name": "taylor",
+//     "password": "password"
+//   }
+// })
+
+// fetchMock.get('/api/users', {
+//   // method: "POST",
+//   // headers: {"Content-Type": "application/json"},
+//   body: {
+//     email: "tman2272@aol.com",
+//     id: 1,
+//     name: "taylor",
+//     password: "password"
+//   }
+// })
 
 
 
@@ -40,11 +55,10 @@ const storageMock = () => {
   //   id: 1,
   //   password: "password"}}
 // let storage = MovieTracker
-let storage = {}
+let Storage = {}
  return {
-   storage,
    setItem: function(key, value) {
-     return storage[key] = value
+     return Storage[key] = value
    },
    clear: function() {
      return this.user = ''
@@ -78,7 +92,7 @@ describe('Login Component Tests', () => {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
-        }, 1000);
+        }, 2000);
       });
     }
 
@@ -95,9 +109,9 @@ describe('Login Component Tests', () => {
     expect(login.node.state.password).toEqual('password')
     loginButton.simulate('click')
     await resolveAfter2Seconds()
-    console.log(login.node.state.failed);
+
     expect(login.node.state.failed).toEqual(false)
-    // expect(window.localStorage.storage).toEqual({"id": 1, "email": "dbull", "password": "ya"})
+    // expect(window.localStorage.Storage).toEqual({"id": 1, "email": "dbull", "password": "ya"})
     // console.log(localStorage.setItem('MovieTracker', JSON.stringify({id: 2, email: 'dbull', password: 'ya'})))
     expect(fetchMock.called()).toEqual(true)
 

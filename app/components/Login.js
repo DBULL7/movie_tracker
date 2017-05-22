@@ -20,16 +20,18 @@ class Login extends Component {
 
   checkDatabase() {
     if (this.checkInputs()){
-      fetch('/api/users', {
+      fetch('http://localhost:3000/api/users', {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({email: this.state.email, password: this.state.password})
       }).then((results) => results.json())
         .then((data) => {
+        console.log('hey mofo this is the friggin data', data)
         this.props.handleLoginUser({id: data.data.id, email: data.data.email, name: data.data.name})
         localStorage.setItem('MovieTracker', JSON.stringify({id: data.data.id, email: this.state.email, password: this.state.password}))
         this.props.history.replace(`/`)
       }).catch((error) => {
+        console.log(error);
         this.setState({email: '', password: '', failed: true})
       })
     }
