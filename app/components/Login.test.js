@@ -7,23 +7,55 @@ import Login from './Login';
 import fetchMock from 'fetch-mock'
 
 
+
+
+
+fetchMock.post('/api/users', {
+  method: "POST",
+  headers: {"Content-Type": "application/json"},
+  body: JSON.stringify({
+    email: "tman2272@aol.com",
+    id: 1,
+    name: "taylor",
+    password: "password"
+  })
+})
+
+fetchMock.get('/api/users', {
+  // method: "POST",
+  // headers: {"Content-Type": "application/json"},
+  body: {
+    email: "tman2272@aol.com",
+    id: 1,
+    name: "taylor",
+    password: "password"
+  }
+})
+
+
+
 const storageMock = () => {
+  // let MovieTracker = {MovieTracker: {
+  //   email: "tman2272@aol.com",
+  //   id: 1,
+  //   password: "password"}}
+// let storage = MovieTracker
 let storage = {}
  return {
-   user: 'bob',
+   storage,
+   setItem: function(key, value) {
+     return storage[key] = value
+   },
    clear: function() {
      return this.user = ''
-   },
-   getItem: function(key) {
-     return key in storage ? storage[key] : null;
-   },
+   }
  }
 }
 
 window.localStorage = storageMock()
 
 const mockStore = configureMockStore()({
-  loginUser: {id: 2, email: 'dbull', password: 'ya'}
+  loginUser: {}
 })
 
 
@@ -38,5 +70,37 @@ describe('Login Component Tests', () => {
     const test = wrapper.find(Login)
 
     expect(test.node.state.email).toEqual('')
+    expect(test.node.state.password).toEqual('')
+  })
+
+  it('should take user input',  async () => {
+    function resolveAfter2Seconds() {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve();
+        }, 1000);
+      });
+    }
+
+    const wrapper = mount(<Provider store={mockStore}><LoginContainer history={'http://localhost:3000/'}/></Provider>)
+    const login = wrapper.find(Login)
+    const email = wrapper.find('.email')
+    const password = wrapper.find('.password')
+    const loginButton = wrapper.find('#login-button')
+    // const mockFn =
+    // console.log(email)
+    email.simulate('change', { target: { value: 'tman2272@aol.com'}})
+    password.simulate('change', { target: { value: 'password'}})
+    expect(login.node.state.email).toEqual('tman2272@aol.com')
+    expect(login.node.state.password).toEqual('password')
+    loginButton.simulate('click')
+    await resolveAfter2Seconds()
+    console.log(login.node.state.failed);
+    expect(login.node.state.failed).toEqual(false)
+    // expect(window.localStorage.storage).toEqual({"id": 1, "email": "dbull", "password": "ya"})
+    // console.log(localStorage.setItem('MovieTracker', JSON.stringify({id: 2, email: 'dbull', password: 'ya'})))
+    expect(fetchMock.called()).toEqual(true)
+
+    // expect(login.node.state.password).toEqual('')
   })
 })

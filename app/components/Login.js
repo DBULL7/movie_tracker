@@ -30,7 +30,7 @@ class Login extends Component {
         localStorage.setItem('MovieTracker', JSON.stringify({id: data.data.id, email: this.state.email, password: this.state.password}))
         this.props.history.replace(`/`)
       }).catch((error) => {
-        this.setState({failed: true})
+        this.setState({email: '', password: '', failed: true})
       })
     }
   }
@@ -70,8 +70,8 @@ class Login extends Component {
         <section id="login">
           {this.failedMessage()}
           <h2 id="login-title">Log In</h2>
-          <input onChange={(e) => {this.updateState(e.target.value, 'email')}}  className="login-form" placeholder="Email"/>
-          <input onChange={(e) => {this.updateState(e.target.value, 'password')}}  className="login-form" placeholder="Password"/>
+          <input value={this.state.email} name="EmailInput" onChange={(e) => {this.updateState(e.target.value, 'email')}}  className="login-form email" placeholder="Email"/>
+          <input value={this.state.password} onChange={(e) => {this.updateState(e.target.value, 'password')}}  className="login-form password" placeholder="Password"/>
           <button id="login-button" onClick={() => {this.checkDatabase()}}>Login</button>
         </section>
       )
