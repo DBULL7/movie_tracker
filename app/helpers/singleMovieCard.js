@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
-export const singleMovieCard = (movie, exitSingleMovie, handleFavorite) => {
-  console.log('ALL THE SINGLE MOVIES', movie);
+export const singleMovieCard = (movie, exitSingleMovie, handleFavorite, favsArray) => {
   return (
     <article className="single-movie">
       <div className="single-clicker" onClick={() => {exitSingleMovie()}}>
@@ -17,8 +16,18 @@ export const singleMovieCard = (movie, exitSingleMovie, handleFavorite) => {
                                            Vote Count: {movie.vote_count}</p>
         </div>
       </div>
-      <button className='single-movie-favorite' onClick={(e) => {
+      <button className={isFavorite(movie.title, favsArray)} onClick={(e) => {
           handleFavorite(movie)}}>FAVORITE</button>
     </article>
   )
+}
+
+const isFavorite = (filmTitle, favsArray) => {
+  let isFav = 0;
+  favsArray.forEach(val => {
+    if(val.title === filmTitle) {
+      isFav++
+    }
+  })
+  return isFav === 0 ? 'single-movie-favorite' : 'single-movie-favorite single-movie-selected'
 }

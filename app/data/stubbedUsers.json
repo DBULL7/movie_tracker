@@ -1,0 +1,42 @@
+{
+status: "success",
+data: [
+{
+id: 1,
+name: "Taylor",
+password: "password",
+email: "tman2272@aol.com"
+},
+{
+id: 2,
+name: "1",
+password: "a",
+email: "1"
+},
+{
+id: 14,
+name: "thing",
+password: "stuff",
+email: "another thing"
+},
+{
+id: 15,
+name: "g",
+password: "a",
+email: "athing@google.com"
+},
+{
+id: 16,
+name: "w",
+password: "w",
+email: "a@h.com"
+},
+{
+id: 17,
+name: "w",
+password: "e",
+email: "w@w.com"
+}
+],
+message: "Retrieved All Users"
+}
