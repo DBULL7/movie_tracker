@@ -6,7 +6,7 @@ import getNewFilms from './getNewFilms'
 import { popUp } from './popUp'
 import { singleMovieCard } from './singleMovieCard'
 import getUsers from './usersApi'
-import stubbedUsers from '../data/stubbedUsers.json'
+import stubbedUsers from '../data/stubbedUsers'
 
 import { mount, shallow } from 'enzyme';
 
@@ -30,13 +30,11 @@ describe('helper function abound', () => {
                           </article>)
   })
 
-  it('getUsers returns list of created accounts', () => {
+  it.skip('getUsers returns list of created accounts', () => {
     fetchMock.post('/api/users', {
       status: "success",
       body: mockUsers,
     })
-
-    fetchMock
   })
 
 })

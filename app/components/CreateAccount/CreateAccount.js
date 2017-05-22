@@ -46,7 +46,7 @@ export default class CreateAccount extends Component {
         console.log(data)
         this.props.handleCreateAccount({id: data.id, name: this.state.name, email: this.state.email})
         localStorage.setItem('MovieTracker', JSON.stringify({id: data.id, email: this.state.email, password: this.state.password}))
-        this.props.history.replace('/loggedIn')
+        this.props.history.replace('/')
       }).catch((error) => {
         console.log(error);
       })
@@ -63,10 +63,14 @@ export default class CreateAccount extends Component {
           this.setState({emailTaken: true})
         } else {
           this.addToDataBase()
-          console.log(results)
+          // console.log(results)
         }
       })
     }
+  }
+
+  disableButton() {
+    return (this.passwordsMatch() && this.nameAndEmail())
   }
 
   fadeOut() {
@@ -91,11 +95,11 @@ export default class CreateAccount extends Component {
         <article id="form">
           {this.failedMessage()}
           <h2 id="create-account-title">Create Account</h2>
-          <input value={this.state.name} onChange={(e) => {this.updateState(e.target.value, 'name')}} className="create-account-form" type='text' placeholder='Name'/>
-          <input value={this.state.email} onChange={(e) => {this.updateState(e.target.value, 'email')}} className="create-account-form" type='text' placeholder='Email'/>
-          <input type="password" value={this.state.password}  onChange={(e) => {this.updateState(e.target.value, 'password')}} className="create-account-form" type='text' placeholder='Enter Your Password'/>
-          <input type={"password"} value={this.state.retypedPassword} onChange={(e) => {this.updateState(e.target.value, 'retypedPassword')}} className="create-account-form" type='text' placeholder='Retype Your Password'/>
-          <button onClick={() => {this.checkDatabase()}} className="create-account-button">Create Account</button>
+          <input value={this.state.name} onChange={(e) => {this.updateState(e.target.value, 'name')}} className="create-account-form name" type='text' placeholder='Name'/>
+          <input value={this.state.email} onChange={(e) => {this.updateState(e.target.value, 'email')}} className="create-account-form email" type='text' placeholder='Email'/>
+          <input type="password" value={this.state.password}  onChange={(e) => {this.updateState(e.target.value, 'password')}} className="create-account-form password" type='text' placeholder='Enter Your Password'/>
+          <input type={"password"} value={this.state.retypedPassword} onChange={(e) => {this.updateState(e.target.value, 'retypedPassword')}} className="create-account-form retypedPassword" type='text' placeholder='Retype Your Password'/>
+          <button id="create-account-button" disabled={!(this.passwordsMatch() && this.nameAndEmail())} onClick={() => {this.checkDatabase()}} >Create Account</button>
         </article>
 
       </section>

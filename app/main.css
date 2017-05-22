@@ -168,7 +168,7 @@ a {
   background-color: #FAFAD2;
 }
 
-.create-account-button {
+#create-account-button {
   height: 25px;
   border-radius: 5px;
   border: none;
@@ -179,9 +179,15 @@ a {
   background-color: #161616;
 }
 
-.create-account-button:hover {
+#create-account-button:hover {
   background-color: rgba(153, 182, 176, 0.2);
 }
+
+#create-account-button:disabled {
+  background-color: gray;
+}
+
+
 
 #page {
   width: 100%;
@@ -246,6 +252,10 @@ a {
 
 #login-button:hover {
   background-color: rgba(153, 182, 176, 0.2);
+}
+
+#login-button:disabled {
+  background-color: gray;
 }
 
 .favorites-title {
