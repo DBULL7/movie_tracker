@@ -254,6 +254,10 @@ a {
   background-color: rgba(153, 182, 176, 0.2);
 }
 
+#login-button:disabled {
+  background-color: gray;
+}
+
 .favorites-title {
   text-align: center;
   color: #161616;

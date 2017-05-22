@@ -74,7 +74,7 @@ class Login extends Component {
           <h2 id="login-title">Log In</h2>
           <input value={this.state.email} name="EmailInput" onChange={(e) => {this.updateState(e.target.value, 'email')}}  className="login-form email" placeholder="Email"/>
           <input value={this.state.password} onChange={(e) => {this.updateState(e.target.value, 'password')}}  className="login-form password" placeholder="Password"/>
-          <button id="login-button" onClick={() => {this.checkDatabase()}}>Login</button>
+          <button disabled={!this.checkInputs()} id="login-button" onClick={() => {this.checkDatabase()}}>Login</button>
         </section>
       )
     }
