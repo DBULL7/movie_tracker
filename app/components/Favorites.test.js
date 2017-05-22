@@ -17,8 +17,30 @@ describe('Favorites', () => {
   })
 
   it('should clear favorites on logout', () => {
-    const action = {type: 'RESET_FAVORITES', allFavorites: []}
+    const action = {type: 'RESET_FAVORITES', allFavorites: [{
+      id: 283995,
+      overview: "The Guardians must fight to keep their newfound family together as they unravel the mysteries of Peter Quill's true parentage.",
+      poster_path: "/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg",
+      release_date: "2017-04-24",
+      title: "Guardians of the Galaxy Vol. 2",
+      vote_average: 7.6,
+      vote_count: 1618
+    }]}
 
     expect(allFavorites(undefined, action).length).toEqual(0);
+  })
+
+  it('should load favorites', () => {
+    const action = {type: 'LOAD_FAVORITES', allFavorites: [{
+      id: 283995,
+      overview: "The Guardians must fight to keep their newfound family together as they unravel the mysteries of Peter Quill's true parentage.",
+      poster_path: "/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg",
+      release_date: "2017-04-24",
+      title: "Guardians of the Galaxy Vol. 2",
+      vote_average: 7.6,
+      vote_count: 1618
+    }]}
+
+    expect(allFavorites(undefined, action).length).toEqual(1)
   })
 })
