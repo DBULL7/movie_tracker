@@ -147,6 +147,7 @@ class Home extends Component {
       <section className="movie-section">
         <section className="movies">
             { this.props.upcomingFilms.map((movie) =>
+
                         <Movie displayMovie={this.showMovie.bind(this)}
                                key={movie.id} {...movie}
                                getFav={this.handleFavorite.bind(this)}

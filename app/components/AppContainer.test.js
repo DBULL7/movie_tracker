@@ -10,6 +10,21 @@ import fetchMock from 'fetch-mock';
 
 describe('AppContainer', () => {
 
+  // const { Container, Component } = setup();
+
+  // it.skip('should pass the appropriate props from state', () => {
+  //   expect(Component.props().items).toEqual({
+  //     upcomingFilms: [],
+  //     loginUser: {
+  //       id: 1,
+  //       email: 'tman2272@aol.com',
+  //       password: 'password'
+  //     },
+  //     allFavorites: []
+  //   })
+  // })
+
+
   it('should mount without crashing', () => {
   //   const mockStore = configureMockStore()({})
   //   const storageMock = () => {
@@ -31,4 +46,5 @@ describe('AppContainer', () => {
     //
     // expect(test.length).toEqual(1)
   })
+
 })
